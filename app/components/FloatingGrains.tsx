@@ -1,16 +1,13 @@
 "use client";
 
 export default function FloatingGrains() {
-  // Grain shapes: rice (elongated ellipses) and wheat (small circles)
   const grains = [
-    // Rice grains
     { type: "rice", top: "8%", left: "5%", delay: "0s", duration: "9s", size: 28, rotate: 25 },
     { type: "rice", top: "15%", left: "85%", delay: "1.2s", duration: "11s", size: 22, rotate: -15 },
     { type: "rice", top: "40%", left: "92%", delay: "2.5s", duration: "10s", size: 18, rotate: 40 },
     { type: "rice", top: "60%", left: "3%", delay: "0.8s", duration: "12s", size: 24, rotate: -30 },
     { type: "rice", top: "75%", left: "78%", delay: "3.1s", duration: "9s", size: 20, rotate: 55 },
     { type: "rice", top: "25%", left: "45%", delay: "1.7s", duration: "10s", size: 16, rotate: -45 },
-    // Wheat grains
     { type: "wheat", top: "12%", left: "70%", delay: "0.5s", duration: "11s", size: 14, rotate: 20 },
     { type: "wheat", top: "55%", left: "15%", delay: "2.0s", duration: "8s", size: 16, rotate: -25 },
     { type: "wheat", top: "35%", left: "60%", delay: "3.5s", duration: "13s", size: 12, rotate: 35 },

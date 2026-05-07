@@ -7,6 +7,7 @@
   --surface-hover: #e2d4f3;
   --border: #d4c0ec;
   --text: #2d1854;
+  --text1: #37235d;
   --text-muted: #6b5691;
   --accent: #9b6dd7;
   --accent-dark: #7b4bbf;
@@ -27,6 +28,7 @@
   --color-accent-light: var(--accent-light);
   --color-glow: var(--glow);
   --font-sans: var(--font-outfit);
+  --breakpoint-xs: 375px;
 }
 
 html {
@@ -591,5 +593,32 @@ body {
   }
   .stat-number {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-label {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    font-size: 0.9375rem;
+  }
+  h1 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* 4K and Ultra Wide Screens */
+@media (min-width: 2000px) {
+  .max-w-7xl {
+    max-width: 9xl; /* Assuming max-w-9xl is defined or just use a large value */
+  }
+  h1 {
+    font-size: 6rem;
+  }
+  body {
+    font-size: 1.25rem;
   }
 }
