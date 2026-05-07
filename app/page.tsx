@@ -37,7 +37,7 @@ export default function Home() {
                 <span className="text-gradient">Premium Grains</span>
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-text1 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Pearl Logistics specializes in the finest Basmati Rice, Normal Rice, and
                 high-grade Wheat. From farm to your doorstep with uncompromising
                 reliability and global reach.
@@ -133,17 +133,17 @@ export default function Home() {
               name="Basmati Rice"
               image="/images/basmati_rice.png"
               badge="Best Seller"
-              href="/products"
+              href="/products/basmati-rice"
             />
             <ProductCard
               name="Normal Rice"
               image="/images/normal_rice.png"
-              href="/products"
+              href="/products/normal-rice"
             />
             <ProductCard
               name="Premium Wheat"
               image="/images/wheat_grains.png"
-              href="/products"
+              href="/products/wheat"
             />
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function Home() {
                 className="btn-primary inline-flex items-center gap-2"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Get a Quote <ArrowRight className="h-5 w-5" />
+                  Contact For More Details <ArrowRight className="h-5 w-5" />
                 </span>
               </Link>
               <Link

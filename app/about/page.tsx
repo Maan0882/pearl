@@ -33,7 +33,7 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-6xl font-bold text-text mb-6 leading-tight">
               Built on Trust, <span className="text-gradient">Driven by Quality</span>
             </h1>
-            <p className="text-text-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base font-bold md:text-lg leading-relaxed max-w-3xl mx-auto text-text1">
               At Pearl Logistics, we bridge the gap between premium agriculture and global markets. With decades of expertise, we ensure every grain meets the highest standards.
             </p>
           </div>

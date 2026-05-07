@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface ProductCardProps {
   name: string;
@@ -10,7 +11,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ name, image, badge, href = "#contact" }: ProductCardProps) {
   return (
-    <a href={href} className="product-card group block cursor-pointer">
+    <Link href={href} className="product-card group block cursor-pointer">
       <div className="card-image">
         <Image
           src={image}
@@ -33,6 +34,6 @@ export default function ProductCard({ name, image, badge, href = "#contact" }: P
           <ArrowRight className="h-4 w-4" />
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

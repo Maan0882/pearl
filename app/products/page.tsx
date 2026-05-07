@@ -80,31 +80,26 @@ export default function ProductsPage() {
         <ProductsGrid />
       </Suspense>
 
-      {/* BULK ORDER CTA */}
-      <section
-        className="py-16"
-        style={{
-          background:
-            "linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)",
-        }}
-      >
+      {/* SIMPLE CTA SECTION */}
+      <section className="py-20" style={{ background: "var(--bg)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-purple rounded-3xl p-10 md:p-14 border border-(--accent-light)/30">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-3">
-              Looking for Bulk Orders?
-            </h2>
-            <p className="text-text-muted mb-8 max-w-lg mx-auto">
-              We offer competitive pricing for bulk exports with custom
-              packaging and international shipping support.
-            </p>
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Request a Quote <ArrowRight className="h-5 w-5" />
-              </span>
-            </Link>
+          <div className="glass-purple rounded-[40px] p-10 md:p-16 border border-accent/20 relative overflow-hidden shadow-2xl">
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-glow/10 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">
+                Ready for <span className="text-gradient">Bulk Orders?</span>
+              </h2>
+              <p className="text-text-muted text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                We provide competitive pricing, premium quality assurance, and global logistics support for all our agricultural commodities.
+              </p>
+              <Link href="/contact" className="btn-primary inline-flex items-center gap-2 px-10 py-5 text-lg shadow-[0_10px_20px_-5px_var(--accent)]">
+                <span className="relative z-10 flex items-center gap-2">
+                  Contact Us Now <ArrowRight className="h-6 w-6" />
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -44,9 +44,9 @@ export default function Navbar() {
   ];
  
   const productSubLinks = [
-    { name: "Rice", href: "/products#normal-rice" },
-    { name: "Basmati Rice", href: "/products#basmati-rice" },
-    { name: "Wheat", href: "/products#wheat" },
+    { name: "Basmati Rice", href: "/products/basmati-rice" },
+    { name: "Normal Rice", href: "/products/normal-rice" },
+    { name: "Wheat", href: "/products/wheat" },
   ];
  
   const isProductsActive = pathname === "/products";

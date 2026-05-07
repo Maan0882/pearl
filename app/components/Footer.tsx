@@ -110,21 +110,21 @@ export default function Footer() {
                   <MapPin className="h-4 w-4 text-accent-light" />
                 </div>
                 <span className="text-sm text-[#9b8ab3] leading-relaxed">
-                  Pearl Logistics HQ, Industrial Area, Karnal, Haryana, India
+                  D 103, SHREE RADHE SHYAM, SEVASI TP 2, BHAYLI VADODARA, 391410, VADODARA, GUJARAT
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                   <Phone className="h-4 w-4 text-accent-light" />
                 </div>
-                <span className="text-sm text-[#9b8ab3]">+91 98765 43210</span>
+                <span className="text-sm text-[#9b8ab3]">+91 7990353622</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                   <Mail className="h-4 w-4 text-accent-light" />
                 </div>
                 <span className="text-sm text-[#9b8ab3]">
-                  info@pearllogistics.com
+                  kamalgohel457@gmail.com
                 </span>
               </li>
             </ul>

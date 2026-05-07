@@ -6,53 +6,12 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import ProductCard from "@/app/components/ProductCard";
 
-const products = [
-  {
-    id: "basmati-rice",
-    name: "Basmati Rice",
-    image: "/images/basmati_rice.png",
-    badge: "Best Seller",
-    description:
-      "Long-grain, aromatic perfection. Known for its distinct flavor and fluffy texture, ideal for biryanis and premium dishes. Sourced from India's finest paddy fields.",
-    features: [
-      "Extra-long grain (8mm+)",
-      "Aged for enhanced aroma",
-      "Non-GMO, pesticide-free",
-    ],
-  },
-  {
-    id: "normal-rice",
-    name: "Normal Rice",
-    image: "/images/normal_rice.png",
-    badge: undefined,
-    description:
-      "High-quality, versatile daily rice. Carefully milled for maximum nutrition and consistent cooking results. Perfect for everyday consumption worldwide.",
-    features: [
-      "Premium milled quality",
-      "High nutritional value",
-      "Consistent grain size",
-    ],
-  },
-  {
-    id: "wheat",
-    name: "Premium Wheat",
-    image: "/images/wheat_grains.png",
-    badge: undefined,
-    description:
-      "Rich, golden wheat kernels sourced from the finest farms. Perfect for milling into high-quality flour for all baking and culinary needs.",
-    features: [
-      "High gluten content",
-      "Golden, plump kernels",
-      "Export-grade certified",
-    ],
-  },
-];
+import { products } from "@/app/data/products";
 
 export default function ProductsGrid() {
   const [activeHash, setActiveHash] = useState("");
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const search = searchParams.get('search')
   
   useEffect(() => {
     const handleHash = () => {
@@ -86,6 +45,7 @@ export default function ProductsGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => {
             const isHighlighted = activeHash === product.id;
+            const productUrl = `/products/${product.id}`;
             return (
               <div
                 key={product.id}
@@ -100,7 +60,7 @@ export default function ProductsGrid() {
                   name={product.name}
                   image={product.image}
                   badge={product.badge}
-                  href="/contact"
+                  href={productUrl}
                 />
                 <div
                   className={`feature-card p-6! transition-all duration-500 ${
@@ -114,7 +74,7 @@ export default function ProductsGrid() {
                     {product.description}
                   </p>
                   <ul className="space-y-2 text-sm text-text-muted">
-                    {product.features.map((f) => (
+                    {product.features.slice(0, 3).map((f) => (
                       <li key={f} className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         {f}
@@ -122,10 +82,10 @@ export default function ProductsGrid() {
                     ))}
                   </ul>
                   <Link
-                    href="/contact"
+                    href={productUrl}
                     className="mt-4 inline-flex items-center text-sm font-semibold text-accent hover:text-accent-dark transition-colors"
                   >
-                    Inquire Now <ArrowRight className="h-4 w-4 ml-1" />
+                    View Details <ArrowRight className="h-4 w-4 ml-1" />
                   </Link>
                 </div>
               </div>
@@ -135,4 +95,4 @@ export default function ProductsGrid() {
       </div>
     </section>
   );
-}
+}

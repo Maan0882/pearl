@@ -58,9 +58,9 @@ export default function ContactPage() {
 
                 <div className="space-y-6 relative z-10">
                   {[
-                    { icon: Mail, label: "Email Us", value: "sales@pearllogistics.com" },
-                    { icon: Phone, label: "Call Us", value: "+91 98765 43210" },
-                    { icon: MapPin, label: "Visit Us", value: "Pearl Logistics HQ, Industrial Area, Karnal, Haryana" },
+                    { icon: Mail, label: "Email Us", value: "kamalgohel457@gmail.com" },
+                    { icon: Phone, label: "Call Us", value: "+91 7990353622" },
+                    { icon: MapPin, label: "Visit Us", value: "D 103, SHREE RADHE SHYAM, SEVASI TP 2, BHAYLI VADODARA, 391410, VADODARA, GUJARAT" },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center shrink-0">
