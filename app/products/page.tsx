@@ -19,14 +19,14 @@ export default function ProductsPage() {
       <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/Grains_in_bowl.jpeg"
+            src="/combined.png"
             alt="Rice and wheat grains in bowls"
             fill
             className="object-cover"
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-linear-to-r from-(--surface)/20 via-(--surface-hover)/30 to-(--surface)/20" />
+          <div className="absolute inset-0 bg-linear-to-b from-(--text)/30 via-(--text1)/40 to-(--text)/30 backdrop-blur-[2px]" />
         </div>
         <div className="absolute top-0 right-0 w-100 h-100 bg-accent opacity-[0.06] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -39,7 +39,7 @@ export default function ProductsPage() {
               Wide Commodities,{" "}
               <span className="text-gradient">Premium Quality</span>
             </h1>
-            <p className="text-text-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-bg text-base font-bold md:text-lg leading-relaxed max-w-2xl mx-auto">
               Discover our carefully curated selection of high-grade grains,
               processed and packaged to international export standards.
             </p>
