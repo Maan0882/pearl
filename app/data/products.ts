@@ -139,17 +139,17 @@ export const products: Product[] = [
     varieties: [
       {
         name: "Sharbati Wheat",
-        image: "/images/sharbati_wheat.png",
+        image: "/Wheat/Sharbati Wheat.png",
         description: "Premium quality wheat from MP, known for making softest rotis."
       },
       {
         name: "Durum Wheat",
-        image: "/images/durum_wheat.png",
+        image: "/Wheat/Durum Wheat.png",
         description: "Hard wheat variety perfect for pasta and semolina production."
       },
       {
         name: "Milling Grade Wheat",
-        image: "/images/milling_wheat.png",
+        image: "/Wheat/Milling Grade Wheat.png",
         description: "High-protein wheat suitable for commercial bread and flour mills."
       }
     ]
