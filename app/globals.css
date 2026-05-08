@@ -335,6 +335,7 @@ body {
   transform: scaleX(0);
 }
 
+
 /* ─── Animation Utilities ─── */
 .animate-float-3d {
   animation: float3d 8s ease-in-out infinite;
@@ -610,15 +611,43 @@ body {
   }
 }
 
-/* 4K and Ultra Wide Screens */
-@media (min-width: 2000px) {
+/* Extra small mobile devices (iPhone SE, old Androids) */
+@media (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 4K, Ultra Wide, and TV Screens */
+@media (min-width: 1536px) {
   .max-w-7xl {
-    max-width: 9xl; /* Assuming max-w-9xl is defined or just use a large value */
+    max-width: 90rem !important;
   }
-  h1 {
-    font-size: 6rem;
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 18px;
   }
-  body {
-    font-size: 1.25rem;
+  .max-w-7xl {
+    max-width: 100rem !important;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 22px;
+  }
+  .max-w-7xl {
+    max-width: 110rem !important;
+  }
+}
+
+@media (min-width: 3840px) { /* 4K TVs */
+  html {
+    font-size: 32px;
+  }
+  .max-w-7xl {
+    max-width: 110rem !important;
   }
 }

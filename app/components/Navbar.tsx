@@ -55,17 +55,17 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "glass shadow-lg py-3"
-          : "bg-linear-to-r from-bg via-bg-alt to-surface py-5"
+          ? "bg-linear-to-br from-[#160d22]/90 via-[#1e102b]/90 to-[#2d1854]/90 shadow-lg py-3"
+          : "bg-linear-to-br from-[#160d22] via-[#1e102b] to-[#2d1854] py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="relative">
+          <Link href="/" className="flex items-center gap-2.5 group ">
+            <div className="relative ">
                 <Image
-                  src="/Pearl Logistic 2 (2).png"
+                  src="/pearl1.png"
                   alt="Pearl Logistics Logo"
                   width={200}
                   height={50}
@@ -82,10 +82,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative px-4 py-2 font-medium transition-colors text-md group ${
+                className={`relative px-4 py-2 font-semibold transition-colors text-lg group ${
                   pathname === link.href
-                    ? "text-accent-dark"
-                    : "text-text hover:text-accent-dark"
+                    ? "text-bg"
+                    : "text-surface hover:text-bg"
                 }`}
               >
                 {link.name}
@@ -98,11 +98,11 @@ export default function Navbar() {
             ))}
  
             {/* Products Dropdown */}
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative text-lg font-semibold" ref={dropdownRef}>
               <button
                 onClick={() => setIsProductsOpen((prev) => !prev)}
-                className={`relative px-4 py-2 font-medium transition-colors text-md group flex items-center gap-1 ${
-                  isProductsActive ? "text-accent-dark" : "text-text hover:text-accent-dark"
+                className={`relative px-4 py-2 font-semibold transition-colors text-md group flex items-center gap-1 ${
+                  isProductsActive ? "text-bg" : "text-surface hover:text-bg"
                 }`}
               >
                 Products
@@ -120,7 +120,7 @@ export default function Navbar() {
  
               {/* Dropdown Panel */}
               <div
-                className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 glass rounded-2xl shadow-xl border border-border overflow-hidden transition-all duration-200 ${
+                className={`absolute top-full text-lg left-1/2 -translate-x-1/2 mt-2 w-48 bg-text rounded-2xl shadow-xl border border-border overflow-hidden transition-all duration-200 ${
                   isProductsOpen
                     ? "opacity-100 translate-y-0 pointer-events-auto"
                     : "opacity-0 -translate-y-2 pointer-events-none"
@@ -132,8 +132,8 @@ export default function Navbar() {
                   onClick={() => setIsProductsOpen(false)}
                   className={`block px-4 py-3 text-sm font-semibold border-b border-border transition-colors ${
                     pathname === "/products"
-                      ? "text-accent-dark bg-surface"
-                      : "text-text hover:bg-surface hover:text-accent-dark"
+                      ? "text-bg bg-text"
+                      : "text-surface hover:bg-accent hover:text-bg"
                   }`}
                 >
                   All Products
@@ -143,7 +143,7 @@ export default function Navbar() {
                     key={sub.name}
                     href={sub.href}
                     onClick={() => setIsProductsOpen(false)}
-                    className="block px-4 py-3 text-sm font-medium text-text-muted hover:bg-surface hover:text-accent-dark transition-colors"
+                    className="block px-4 py-3 text-sm font-semibold text-bg hover:bg-accent hover:text-bg transition-colors"
                   >
                     {sub.name}
                   </Link>
@@ -154,7 +154,7 @@ export default function Navbar() {
             {/* Contact Us CTA */}
             <Link
               href="/contact"
-              className="ml-3 btn-primary text-md py-2.5! px-6! inline-flex items-center gap-2"
+              className="ml-3 text-bg bg-linear-to-br from-[#1e102b] to-[#2d1854] rounded-full text-lg font-semibold py-2.5! px-6! inline-flex items-center gap-2"
             >
               <span className="relative z-10">Contact Us</span>
             </Link>
