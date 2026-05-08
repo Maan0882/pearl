@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Leaf, ShieldCheck, Truck, ChevronRight, Award } from "lucide-react";
+import { Leaf, ShieldCheck, Truck, ChevronRight, Award, Settings, Package, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -94,28 +94,64 @@ export default function AboutPage() {
       </section>
 
       {/* OUR PROCESS */}
-      <section className="py-16 md:py-20" style={{ background: "var(--bg-alt)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Our <span className="text-gradient">Process</span></h2>
-            <p className="text-text-muted">From farm to global markets — quality at every step.</p>
+      <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-alt)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-20 animate-fade-in-up">
+            <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">Our <span className="text-gradient">Process</span></h2>
+            <p className="text-text-muted text-lg">From farm to global markets — quality engineered at every step of the journey.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[
-              { step: "01", title: "Sourcing", desc: "Partner with top-tier farmers and procure the finest grains from India's agricultural heartlands." },
-              { step: "02", title: "Processing", desc: "Multi-stage cleaning, sorting, and grading in ISO-certified facilities." },
-              { step: "03", title: "Packaging", desc: "Custom packaging with private labeling, sealed to preserve freshness." },
-              { step: "04", title: "Delivery", desc: "Temperature-controlled logistics with global shipping for timely delivery." },
-            ].map((item, i) => (
-              <div key={i} className="relative group">
-                <div className="feature-card text-center h-full p-8 md:p-10">
-                  <div className="text-5xl md:text-6xl font-extrabold text-gradient opacity-20 mb-6 group-hover:opacity-40 transition-opacity">{item.step}</div>
-                  <h3 className="text-xl font-bold text-text mb-3">{item.title}</h3>
-                  <p className="text-text-muted text-sm md:text-base leading-relaxed">{item.desc}</p>
+          
+          <div className="relative max-w-5xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-border to-transparent -translate-x-1/2" />
+            
+            <div className="space-y-16 md:space-y-24">
+              {[
+                { step: "01", title: "Sourcing", desc: "We partner directly with top-tier farmers across India's finest agricultural heartlands, procuring grains at peak harvest to ensure maximum freshness and quality.", img: "/images/process_sourcing.png", icon: Leaf },
+                { step: "02", title: "Processing", desc: "Grains undergo multi-stage cleaning, sorting, and color-grading in our state-of-the-art ISO-certified facilities to remove any impurities.", img: "/images/process_processing.png", icon: Settings },
+                { step: "03", title: "Packaging", desc: "We offer custom packaging solutions including private labeling. Every batch is sealed in moisture-resistant materials to preserve freshness and aroma.", img: "/images/process_packaging.png", icon: Package },
+                { step: "04", title: "Delivery", desc: "Our temperature-controlled logistics network ensures safe and timely global shipping, delivering premium quality to over 50 countries worldwide.", img: "/images/process_delivery.png", icon: Globe },
+              ].map((item, i) => (
+                <div key={i} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0 group">
+                  {/* Timeline Node */}
+                  <div className="absolute left-4 md:left-1/2 w-12 h-12 rounded-full bg-linear-to-br from-accent to-accent-dark border-4 border-[var(--bg-alt)] shadow-lg -translate-x-1/2 flex items-center justify-center z-20 group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="h-5 w-5 text-white" />
+                  </div>
+
+                  {/* Text Panel */}
+                  <div className={`pl-16 md:pl-0 w-full md:w-1/2 flex flex-col justify-center relative ${i % 2 === 0 ? 'md:pr-16 md:items-end md:text-right' : 'md:pl-16 md:order-last md:items-start md:text-left'}`}>
+                    {/* Giant background number */}
+                    <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 text-[12rem] font-black text-gradient opacity-[0.03] pointer-events-none z-0 ${i % 2 === 0 ? 'right-16' : 'left-16'}`}>
+                      {item.step}
+                    </div>
+                    
+                    <div className="relative z-10 w-full max-w-md">
+                      <div className={`text-sm font-bold tracking-widest text-accent mb-3 uppercase flex items-center gap-3 ${i % 2 === 0 ? 'md:justify-end' : 'md:justify-start'}`}>
+                         {i % 2 !== 0 && <span className="w-8 h-px bg-accent hidden md:block"></span>}
+                         Step {item.step}
+                         {i % 2 === 0 && <span className="w-8 h-px bg-accent hidden md:block"></span>}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl font-bold text-text mb-4">{item.title}</h3>
+                      <p className="text-text-muted leading-relaxed text-lg">{item.desc}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Image Panel */}
+                  <div className={`pl-16 md:pl-0 w-full md:w-1/2 ${i % 2 === 0 ? 'md:pl-16 md:order-last' : 'md:pr-16'}`}>
+                    <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl border border-border group-hover:shadow-2xl transition-all duration-500">
+                      <Image 
+                        src={item.img} 
+                        alt={item.title} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                  </div>
                 </div>
-                {i < 3 && <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-border z-10" />}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

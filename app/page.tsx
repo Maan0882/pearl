@@ -15,15 +15,15 @@ export default function Home() {
           background: "linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 30%, var(--surface) 60%, var(--bg-alt) 100%)",
         }}
       >
-        
+
         {/* Subtle Background Image Overlay for Texture */}
         <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity">
-          <Image 
-            src="/RIce_&_Wheat_In_Hand.jpeg" 
-            alt="Premium Grains Background" 
-            fill 
-            className="object-cover" 
-            priority 
+          <Image
+            src="/RIce_&_Wheat_In_Hand.jpeg"
+            alt="Premium Grains Background"
+            fill
+            className="object-cover"
+            priority
           />
         </div>
 
@@ -41,7 +41,7 @@ export default function Home() {
           <p className="text-lg md:text-2xl text-text-muted font-light max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             Meticulously sourced, elegantly delivered. Nourishing the world with nature&apos;s finest harvests.
           </p>
-          
+
           <div className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
             <Link
               href="/products"
@@ -63,7 +63,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group">
-              <Image 
+              <Image
                 src="/RIce_&_Wheat_In_Hand.jpeg"
                 alt="Harvesting Grains"
                 fill
@@ -71,29 +71,29 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-linear-to-tr from-bg/60 to-transparent pointer-events-none" />
             </div>
-            
+
             <div className="space-y-8 lg:pr-10">
               <div className="flex items-center gap-4 mb-2">
                 <div className="h-[1px] w-12 bg-accent"></div>
                 <span className="uppercase tracking-widest text-accent text-sm font-semibold">Our Heritage</span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight">
                 A Legacy of <br />
                 <span className="text-gradient font-serif italic pr-2">Purity & Quality</span>
               </h2>
-              
-              <p className="text-lg md:text-xl text-text-muted leading-relaxed font-light">
+
+              <p className="text-lg md:text-xl text-text-muted leading-relaxed font-medium">
                 At Pearl Logistics, our roots run deep in the fertile soils where the finest grains are cultivated. We believe that exceptional quality begins at the source, partnering directly with seasoned farmers to ensure perfection in every harvest.
               </p>
-              
-              <p className="text-base text-text-muted/80 leading-relaxed font-light">
+
+              <p className="text-base text-text-muted leading-relaxed font-medium">
                 Driven by a passion for authenticity, we bring wholesome, nutritious agricultural products to tables across the globe. Our uncompromising standards guarantee that every grain of our Basmati, normal rice, and premium wheat delivers an unmatched culinary experience.
               </p>
-              
+
               <div className="pt-6">
                 <Link href="/about" className="group inline-flex items-center gap-3 text-text hover:text-accent transition-colors uppercase tracking-widest text-sm font-semibold">
-                  Discover Our Story 
+                  Discover Our Story
                   <span className="w-8 h-8 rounded-full border border-text/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all">
                     <ArrowRight className="h-4 w-4" />
                   </span>
@@ -107,86 +107,86 @@ export default function Home() {
       {/* ═══════════════════════ ELEGANT PRODUCTS SHOWCASE ═══════════════════════ */}
       <section className="py-24 md:py-40 relative" style={{ background: "var(--bg)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center mb-24 md:mb-40">
-             <span className="uppercase tracking-widest text-accent text-sm font-semibold mb-4 block">The Collection</span>
-             <h2 className="text-4xl md:text-6xl font-bold text-text">
-                Our Finest <span className="text-gradient font-serif italic pr-2">Grains</span>
-             </h2>
+            <span className="uppercase tracking-widest text-accent text-sm font-semibold mb-4 block">The Collection</span>
+            <h2 className="text-4xl md:text-6xl font-bold text-text">
+              Our Finest <span className="text-gradient font-serif italic pr-2">Grains</span>
+            </h2>
           </div>
 
           <div className="space-y-32 md:space-y-48">
-            
+
             {/* Product 1 - Basmati */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-               <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
-                  <Image 
-                    src="/images/basmati_rice.png" 
-                    alt="Basmati Rice" 
-                    fill 
-                    className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
-                  />
-               </div>
-               <div className="lg:col-span-5 lg:-ml-24 relative z-10">
-                  <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
-                    <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">01 &mdash; Signature</span>
-                    <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Basmati Rice</h3>
-                    <p className="text-text-muted text-lg leading-relaxed mb-8 font-light">
-                      Aromatic, long-grain perfection. Our Basmati rice is carefully aged to enhance its natural fragrance and delicate flavor, making it the undisputed crown jewel of any feast.
-                    </p>
-                    <Link href="/products/basmati-rice" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
-                      Explore Basmati <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-               </div>
+              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                <Image
+                  src="/images/basmati_rice.png"
+                  alt="Basmati Rice"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out"
+                />
+              </div>
+              <div className="lg:col-span-5 lg:-ml-24 relative z-10">
+                <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
+                  <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">01 &mdash; Signature</span>
+                  <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Basmati Rice</h3>
+                  <p className="text-text1 text-lg leading-relaxed mb-8 font-medium">
+                    Aromatic, long-grain perfection. Our Basmati rice is carefully aged to enhance its natural fragrance and delicate flavor, making it the undisputed crown jewel of any feast.
+                  </p>
+                  <Link href="/products/basmati-rice" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
+                    Explore Basmati <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
 
             {/* Product 2 - Wheat */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-               <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-10">
-                  <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
-                    <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">02 &mdash; Premium</span>
-                    <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Golden Wheat</h3>
-                    <p className="text-text-muted text-lg leading-relaxed mb-8 font-light">
-                      Wholesome and nutrient-rich. Harvested at the peak of perfection to ensure optimal baking qualities, providing the essential foundation for breads and pastries worldwide.
-                    </p>
-                    <Link href="/products/wheat" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
-                      Explore Wheat <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-               </div>
-               <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
-                  <Image 
-                    src="/images/wheat_grains.png" 
-                    alt="Premium Wheat" 
-                    fill 
-                    className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
-                  />
-               </div>
+              <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-10">
+                <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
+                  <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">02 &mdash; Premium</span>
+                  <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Golden Wheat</h3>
+                  <p className="text-text1 text-lg leading-relaxed mb-8 font-medium">
+                    Wholesome and nutrient-rich. Harvested at the peak of perfection to ensure optimal baking qualities, providing the essential foundation for breads and pastries worldwide.
+                  </p>
+                  <Link href="/products/wheat" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
+                    Explore Wheat <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                <Image
+                  src="/images/wheat_grains.png"
+                  alt="Premium Wheat"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out"
+                />
+              </div>
             </div>
 
             {/* Product 3 - Normal Rice */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-               <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
-                  <Image 
-                    src="/images/normal_rice.png" 
-                    alt="Normal Rice" 
-                    fill 
-                    className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
-                  />
-               </div>
-               <div className="lg:col-span-5 lg:-ml-24 relative z-10">
-                  <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
-                    <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">03 &mdash; Essential</span>
-                    <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Normal Rice</h3>
-                    <p className="text-text-muted text-lg leading-relaxed mb-8 font-light">
-                      Versatile, comforting, and essential. Providing daily sustenance for millions with reliable consistency, perfect texture, and comforting taste in every single grain.
-                    </p>
-                    <Link href="/products/normal-rice" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
-                      Explore Normal Rice <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-               </div>
+              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                <Image
+                  src="/images/normal_rice.png"
+                  alt="Normal Rice"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out"
+                />
+              </div>
+              <div className="lg:col-span-5 lg:-ml-24 relative z-10">
+                <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
+                  <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">03 &mdash; Essential</span>
+                  <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Normal Rice</h3>
+                  <p className="text-text1 text-lg leading-relaxed mb-8 font-medium">
+                    Versatile, comforting, and essential. Providing daily sustenance for millions with reliable consistency, perfect texture, and comforting taste in every single grain.
+                  </p>
+                  <Link href="/products/normal-rice" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
+                    Explore Normal Rice <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -196,13 +196,13 @@ export default function Home() {
       {/* ═══════════════════════ ELEGANT CTA ═══════════════════════ */}
       <section className="py-24 relative border-t border-white/5" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent blur-[120px] mix-blend-screen" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent blur-[120px] mix-blend-screen" />
         </div>
-        
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <ShieldCheck className="h-12 w-12 text-accent mx-auto mb-8 opacity-80" />
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text mb-8">
-            Ready to Partner <br/>
+            Ready to Partner <br />
             <span className="font-serif italic text-gradient pr-2">With Us?</span>
           </h2>
           <p className="text-text-muted mb-12 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
