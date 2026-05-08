@@ -1,4 +1,4 @@
-import { Wheat, Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Wheat, Mail, Phone, MapPin, ArrowUpRight, FileText } from "lucide-react";
 import Link from "next/link";
 import Image from 'next/image';
 
@@ -144,6 +144,14 @@ export default function Footer() {
                 </div>
                 <span className="text-sm text-[#9b8ab3]">
                   kamalgohel457@gmail.com
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
+                  <FileText className="h-4 w-4 text-accent-light" />
+                </div>
+                <span className="text-sm text-[#9b8ab3]">
+                  IEC Number: CJCPG0702N
                 </span>
               </li>
             </ul>
