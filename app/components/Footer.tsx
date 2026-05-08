@@ -21,10 +21,10 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 mb-5">
               <div className="relative">
                   <Image
-                    src="/Pearl Logistic 2 (2).png"
+                    src="/Pearl Logistic White.png"
                     alt="Pearl Logistics Logo"
-                    width={200}
-                    height={50}
+                    width={210}
+                    height={60}
                     className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 h-12`}
                     priority
                   />

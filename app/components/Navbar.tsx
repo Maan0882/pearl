@@ -65,10 +65,10 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2.5 group ">
             <div className="relative ">
                 <Image
-                  src="/pearl1.png"
+                  src="/Pearl Logistic White.png"
                   alt="Pearl Logistics Logo"
-                  width={200}
-                  height={50}
+                  width={210}
+                  height={60}
                   className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 ${isScrolled ? 'h-10' : 'h-14'}`}
                   priority
                 />
