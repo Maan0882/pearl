@@ -10,28 +10,30 @@ export default function Home() {
 
       {/* ═══════════════════════ CINEMATIC HERO ═══════════════════════ */}
       <section
-        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+        className="relative min-h-[100dvh] w-full flex items-center justify-center pt-20 overflow-hidden bg-black"
         style={{
           background: "linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 30%, var(--surface) 60%, var(--bg-alt) 100%)",
         }}
       >
 
-        {/* Subtle Background Video Overlay */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none ">
+        {/* Responsive Background Video */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-75">
           <video
             src="/pearlvideo.mp4"
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            // Using object-contain on mobile prevents harsh cropping so the entire video is visible.
+            // On larger screens (laptops, monitors, TVs), object-cover perfectly fills the background.
+            className="w-full h-full object-contain lg:object-cover"
           />
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
 
-        {/* <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           <p className="text-text uppercase tracking-[0.4em] text-xs md:text-sm font-semibold mb-8 animate-fade-in-up">
             Pearl Logistics
           </p>
@@ -51,7 +53,7 @@ export default function Home() {
               Explore Our Collection
             </Link>
           </div>
-        </div> */}
+        </div>
 
         {/* Elegant Scroll Indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
