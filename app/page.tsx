@@ -16,41 +16,42 @@ export default function Home() {
         }}
       >
 
-        {/* Subtle Background Image Overlay for Texture */}
-        <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity">
-          <Image
-            src="/RIce_&_Wheat_In_Hand.jpeg"
-            alt="Premium Grains Background"
-            fill
-            className="object-cover"
-            priority
+        {/* Subtle Background Video Overlay */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none ">
+          <video
+            src="/pearlvideo.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
           />
         </div>
 
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-          <p className="text-accent uppercase tracking-[0.4em] text-xs md:text-sm font-semibold mb-8 animate-fade-in-up">
+        {/* <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          <p className="text-text uppercase tracking-[0.4em] text-xs md:text-sm font-semibold mb-8 animate-fade-in-up">
             Pearl Logistics
           </p>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold text-text tracking-tight leading-[1.1] mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             The Essence of <br className="hidden md:block" />
-            <span className="text-gradient font-serif italic pr-2">Pure Grains</span>
+            <span className="text-bg font-serif italic pr-2">Pure Grains</span>
           </h1>
-          <p className="text-lg md:text-2xl text-text-muted font-light max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <p className="text-lg md:text-2xl text-text1 font-medium max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             Meticulously sourced, elegantly delivered. Nourishing the world with nature&apos;s finest harvests.
           </p>
 
           <div className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
             <Link
               href="/products"
-              className="inline-flex items-center justify-center px-10 py-4 border border-accent/50 text-text hover:bg-accent hover:text-white transition-all duration-500 uppercase tracking-widest text-sm font-medium hover:border-accent"
+              className="inline-flex items-center justify-center px-10 py-4 border border-accent-dark text-text hover:bg-accent hover:text-white transition-all duration-500 uppercase tracking-widest text-sm font-medium hover:border-accent"
             >
               Explore Our Collection
             </Link>
           </div>
-        </div>
+        </div> */}
 
         {/* Elegant Scroll Indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
