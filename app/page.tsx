@@ -1,181 +1,227 @@
-import { ArrowRight, Leaf, ShieldCheck, Globe } from "lucide-react";
+import { ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import FloatingGrains from "@/app/components/FloatingGrains";
-import ProductCard from "@/app/components/ProductCard";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <FloatingGrains />
 
-      {/* ═══════════════════════ HERO SECTION ═══════════════════════ */}
+      {/* ═══════════════════════ CINEMATIC HERO ═══════════════════════ */}
       <section
-        className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
         style={{
           background: "linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 30%, var(--surface) 60%, var(--bg-alt) 100%)",
         }}
       >
-        <FloatingGrains />
-
-        {/* Decorative rings */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-175 h-175 rounded-full border border-border opacity-20 animate-spin-slow pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full border border-accent-light opacity-15 animate-spin-slow pointer-events-none" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 lg:py-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left animate-fade-in-up">
-              <div className="section-label mx-auto lg:mx-0">
-                <Leaf className="h-4 w-4" />
-                <span>Premium Quality Grains</span>
-              </div>
-
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-text tracking-tight leading-[1.1] sm:leading-[1.08]">
-                Nourishing the{" "}
-                <br className="hidden sm:block" />
-                World with{" "}
-                <span className="text-gradient">Premium Grains</span>
-              </h1>
-
-              <p className="text-sm sm:text-base md:text-lg text-text1 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Pearl Logistics specializes in the finest Basmati Rice, Normal Rice, and
-                high-grade Wheat. From farm to your doorstep with uncompromising
-                reliability and global reach.
-              </p>
-
-              <div className="flex flex-col xs:flex-row items-center gap-4 justify-center lg:justify-start">
-                <Link
-                  href="/products"
-                  className="btn-primary w-full xs:w-auto inline-flex items-center justify-center gap-2 text-base"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Explore Products <ArrowRight className="h-5 w-5" />
-                  </span>
-                </Link>
-                <Link
-                  href="/about"
-                  className="btn-secondary w-full xs:w-auto inline-flex items-center justify-center text-base"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-
-            {/* Right — Hero Image */}
-            <div className="relative block lg:block">
-              <div className="relative h-72 sm:h-96 md:h-110 lg:h-135 w-full">
-                {/* Glow behind card */}
-                <div className="absolute inset-4 bg-linear-to-tr from-accent to-glow rounded-[2rem] sm:rounded-[2.5rem] opacity-15 blur-2xl" />
-
-                {/* Main image container */}
-                <div className="absolute inset-0 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-2xl border border-border">
-                  <Image
-                    src="/RIce_&_Wheat_In_Hand.jpeg"
-                    alt="Premium grain fields — Pearl Logistics"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-accent-dark/30 to-transparent pointer-events-none" />
-                </div>
-
-                {/* Floating badge */}
-                <div className="absolute -bottom-4 -left-2 sm:-left-4 glass-purple rounded-xl sm:rounded-2xl p-3 sm:p-5 shadow-xl z-20 animate-float-medium" style={{ animationDelay: "1s" }}>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-linear-to-br from-accent to-accent-dark flex items-center justify-center">
-                      <ShieldCheck className="h-4 w-4 sm:h-6 sm:w-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-text text-[10px] sm:text-sm">100% Certified</p>
-                      <p className="text-[8px] sm:text-xs text-text-muted">Premium Export Quality</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Top-right badge */}
-                <div className="absolute -top-3 -right-2 sm:-right-3 glass rounded-lg sm:rounded-xl px-2 sm:px-4 py-2 sm:py-3 shadow-lg z-20 animate-float-medium" style={{ animationDelay: "2s" }}>
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <Globe className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-accent" />
-                    <span className="text-[10px] sm:text-sm font-semibold text-text">Global Reach</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        
+        {/* Subtle Background Image Overlay for Texture */}
+        <div className="absolute inset-0 opacity-[0.08] mix-blend-luminosity">
+          <Image 
+            src="/RIce_&_Wheat_In_Hand.jpeg" 
+            alt="Premium Grains Background" 
+            fill 
+            className="object-cover" 
+            priority 
+          />
         </div>
-      </section>
 
-      {/* ═══════════════════════ FEATURED PRODUCTS PREVIEW ═══════════════════════ */}
-      <section className="py-20 md:py-28 relative" style={{ background: "var(--bg)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
-              <div className="section-label mb-4">
-                <Leaf className="h-4 w-4" />
-                <span>Our Products</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-text leading-tight">
-                Premium{" "}
-                <span className="text-gradient">Commodities</span>
-              </h2>
-            </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
+
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          <p className="text-accent uppercase tracking-[0.4em] text-xs md:text-sm font-semibold mb-8 animate-fade-in-up">
+            Pearl Logistics
+          </p>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold text-text tracking-tight leading-[1.1] mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            The Essence of <br className="hidden md:block" />
+            <span className="text-gradient font-serif italic pr-2">Pure Grains</span>
+          </h1>
+          <p className="text-lg md:text-2xl text-text-muted font-light max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            Meticulously sourced, elegantly delivered. Nourishing the world with nature&apos;s finest harvests.
+          </p>
+          
+          <div className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
             <Link
               href="/products"
-              className="btn-secondary inline-flex items-center gap-2 self-start md:self-auto"
+              className="inline-flex items-center justify-center px-10 py-4 border border-accent/50 text-text hover:bg-accent hover:text-white transition-all duration-500 uppercase tracking-widest text-sm font-medium hover:border-accent"
             >
-              View All Products <ArrowRight className="h-4 w-4" />
+              Explore Our Collection
             </Link>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProductCard
-              name="Basmati Rice"
-              image="/images/basmati_rice.png"
-              badge="Best Seller"
-              href="/products/basmati-rice"
-            />
-            <ProductCard
-              name="Normal Rice"
-              image="/images/normal_rice.png"
-              href="/products/normal-rice"
-            />
-            <ProductCard
-              name="Premium Wheat"
-              image="/images/wheat_grains.png"
-              href="/products/wheat"
-            />
+        {/* Elegant Scroll Indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
+          <div className="w-[1px] h-20 bg-linear-to-b from-accent to-transparent mx-auto"></div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ ABOUT SUMMARY ═══════════════════════ */}
+      <section className="py-24 md:py-32 relative border-t border-white/5" style={{ background: "var(--bg-alt)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group">
+              <Image 
+                src="/RIce_&_Wheat_In_Hand.jpeg"
+                alt="Harvesting Grains"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out"
+              />
+              <div className="absolute inset-0 bg-linear-to-tr from-bg/60 to-transparent pointer-events-none" />
+            </div>
+            
+            <div className="space-y-8 lg:pr-10">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="h-[1px] w-12 bg-accent"></div>
+                <span className="uppercase tracking-widest text-accent text-sm font-semibold">Our Heritage</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight">
+                A Legacy of <br />
+                <span className="text-gradient font-serif italic pr-2">Purity & Quality</span>
+              </h2>
+              
+              <p className="text-lg md:text-xl text-text-muted leading-relaxed font-light">
+                At Pearl Logistics, our roots run deep in the fertile soils where the finest grains are cultivated. We believe that exceptional quality begins at the source, partnering directly with seasoned farmers to ensure perfection in every harvest.
+              </p>
+              
+              <p className="text-base text-text-muted/80 leading-relaxed font-light">
+                Driven by a passion for authenticity, we bring wholesome, nutritious agricultural products to tables across the globe. Our uncompromising standards guarantee that every grain of our Basmati, normal rice, and premium wheat delivers an unmatched culinary experience.
+              </p>
+              
+              <div className="pt-6">
+                <Link href="/about" className="group inline-flex items-center gap-3 text-text hover:text-accent transition-colors uppercase tracking-widest text-sm font-semibold">
+                  Discover Our Story 
+                  <span className="w-8 h-8 rounded-full border border-text/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════ CTA SECTION ═══════════════════════ */}
-      <section className="py-16" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-purple rounded-3xl p-10 md:p-14 border border-accent-light/30">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
-              Ready to Partner with Us?
-            </h2>
-            <p className="text-text-muted mb-8 max-w-lg mx-auto text-base md:text-lg">
-              We offer competitive pricing for bulk exports with custom packaging
-              and international shipping support to 50+ countries.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/contact"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Contact For More Details <ArrowRight className="h-5 w-5" />
-                </span>
-              </Link>
-              <Link
-                href="/about"
-                className="btn-secondary inline-flex items-center gap-2"
-              >
-                Learn About Us
-              </Link>
+      {/* ═══════════════════════ ELEGANT PRODUCTS SHOWCASE ═══════════════════════ */}
+      <section className="py-24 md:py-40 relative" style={{ background: "var(--bg)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center mb-24 md:mb-40">
+             <span className="uppercase tracking-widest text-accent text-sm font-semibold mb-4 block">The Collection</span>
+             <h2 className="text-4xl md:text-6xl font-bold text-text">
+                Our Finest <span className="text-gradient font-serif italic pr-2">Grains</span>
+             </h2>
+          </div>
+
+          <div className="space-y-32 md:space-y-48">
+            
+            {/* Product 1 - Basmati */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
+               <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                  <Image 
+                    src="/images/basmati_rice.png" 
+                    alt="Basmati Rice" 
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
+                  />
+               </div>
+               <div className="lg:col-span-5 lg:-ml-24 relative z-10">
+                  <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
+                    <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">01 &mdash; Signature</span>
+                    <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Basmati Rice</h3>
+                    <p className="text-text-muted text-lg leading-relaxed mb-8 font-light">
+                      Aromatic, long-grain perfection. Our Basmati rice is carefully aged to enhance its natural fragrance and delicate flavor, making it the undisputed crown jewel of any feast.
+                    </p>
+                    <Link href="/products/basmati-rice" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
+                      Explore Basmati <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+               </div>
             </div>
+
+            {/* Product 2 - Wheat */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
+               <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-10">
+                  <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
+                    <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">02 &mdash; Premium</span>
+                    <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Golden Wheat</h3>
+                    <p className="text-text-muted text-lg leading-relaxed mb-8 font-light">
+                      Wholesome and nutrient-rich. Harvested at the peak of perfection to ensure optimal baking qualities, providing the essential foundation for breads and pastries worldwide.
+                    </p>
+                    <Link href="/products/wheat" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
+                      Explore Wheat <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+               </div>
+               <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                  <Image 
+                    src="/images/wheat_grains.png" 
+                    alt="Premium Wheat" 
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
+                  />
+               </div>
+            </div>
+
+            {/* Product 3 - Normal Rice */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
+               <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+                  <Image 
+                    src="/images/normal_rice.png" 
+                    alt="Normal Rice" 
+                    fill 
+                    className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out" 
+                  />
+               </div>
+               <div className="lg:col-span-5 lg:-ml-24 relative z-10">
+                  <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
+                    <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">03 &mdash; Essential</span>
+                    <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Normal Rice</h3>
+                    <p className="text-text-muted text-lg leading-relaxed mb-8 font-light">
+                      Versatile, comforting, and essential. Providing daily sustenance for millions with reliable consistency, perfect texture, and comforting taste in every single grain.
+                    </p>
+                    <Link href="/products/normal-rice" className="inline-flex items-center gap-2 text-text hover:text-accent transition-colors uppercase tracking-widest text-xs font-semibold">
+                      Explore Normal Rice <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ ELEGANT CTA ═══════════════════════ */}
+      <section className="py-24 relative border-t border-white/5" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent blur-[120px] mix-blend-screen" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <ShieldCheck className="h-12 w-12 text-accent mx-auto mb-8 opacity-80" />
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text mb-8">
+            Ready to Partner <br/>
+            <span className="font-serif italic text-gradient pr-2">With Us?</span>
+          </h2>
+          <p className="text-text-muted mb-12 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+            We offer competitive pricing for bulk exports with custom packaging
+            and international shipping support to over 50 countries worldwide.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link
+              href="/contact"
+              className="px-10 py-4 bg-text text-bg hover:bg-accent hover:text-white transition-colors duration-300 uppercase tracking-widest text-sm font-bold"
+            >
+              Contact Sales
+            </Link>
+            <Link
+              href="/about"
+              className="px-10 py-4 border border-white/20 text-text hover:border-accent hover:text-accent transition-colors duration-300 uppercase tracking-widest text-sm font-medium"
+            >
+              Our Commitments
+            </Link>
           </div>
         </div>
       </section>
