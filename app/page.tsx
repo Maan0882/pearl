@@ -1,13 +1,11 @@
 import { ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import Global3DGrains from "@/app/components/3d-scene/Global3DGrains";
+import SectionGrains from "@/app/components/3d-scene/SectionGrains";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Global3DGrains />
-
       {/* ═══════════════════════ CINEMATIC HERO ═══════════════════════ */}
       <section
         className="relative min-h-[100dvh] w-full flex items-center justify-center pt-20 overflow-hidden"
@@ -61,9 +59,10 @@ export default function Home() {
 
       {/* ═══════════════════════ ABOUT SUMMARY ═══════════════════════ */}
       <section className="py-24 md:py-32 relative border-t border-white/5" style={{ background: "var(--bg-alt)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionGrains count={30} color1="#d4af37" color2="#ffffff" /> {/* 50% grains, Gold & White */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group z-10">
+            <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group z-20">
               <Image
                 src="/RIce_&_Wheat_In_Hand.jpeg"
                 alt="Harvesting Grains"
@@ -107,7 +106,8 @@ export default function Home() {
 
       {/* ═══════════════════════ ELEGANT PRODUCTS SHOWCASE ═══════════════════════ */}
       <section className="py-24 md:py-40 relative" style={{ background: "var(--bg)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionGrains count={30} color1="#9b6dd7" color2="#c9a7f0" /> {/* 50% grains, Purple theme */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           <div className="text-center mb-24 md:mb-40">
             <span className="uppercase tracking-widest text-accent text-sm font-semibold mb-4 block">The Collection</span>
@@ -120,7 +120,7 @@ export default function Home() {
 
             {/* Product 1 - Basmati */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-10">
+              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-20">
                 <Image
                   src="/images/basmati_rice.png"
                   alt="Basmati Rice"
@@ -128,7 +128,7 @@ export default function Home() {
                   className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out"
                 />
               </div>
-              <div className="lg:col-span-5 lg:-ml-24 relative z-10">
+              <div className="lg:col-span-5 lg:-ml-24 relative z-20">
                 <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
                   <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">01 &mdash; Signature</span>
                   <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Basmati Rice</h3>
@@ -144,7 +144,7 @@ export default function Home() {
 
             {/* Product 2 - Wheat */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-              <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-10">
+              <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-20">
                 <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
                   <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">02 &mdash; Premium</span>
                   <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Golden Wheat</h3>
@@ -156,7 +156,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-10">
+              <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-20">
                 <Image
                   src="/images/wheat_grains.png"
                   alt="Premium Wheat"
@@ -168,7 +168,7 @@ export default function Home() {
 
             {/* Product 3 - Normal Rice */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-10">
+              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-20">
                 <Image
                   src="/images/normal_rice.png"
                   alt="Normal Rice"
@@ -176,7 +176,7 @@ export default function Home() {
                   className="object-cover hover:scale-105 transition-transform duration-[2s] ease-out"
                 />
               </div>
-              <div className="lg:col-span-5 lg:-ml-24 relative z-10">
+              <div className="lg:col-span-5 lg:-ml-24 relative z-20">
                 <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
                   <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">03 &mdash; Essential</span>
                   <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Normal Rice</h3>
@@ -196,6 +196,7 @@ export default function Home() {
 
       {/* ═══════════════════════ ELEGANT CTA ═══════════════════════ */}
       <section className="py-24 relative border-t border-white/5" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
+        <SectionGrains count={30} color1="#8fb339" color2="#e8ecd7" /> {/* 50% grains, Green theme */}
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent blur-[120px] mix-blend-screen" />

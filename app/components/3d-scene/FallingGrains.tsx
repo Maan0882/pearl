@@ -4,9 +4,11 @@ import * as THREE from 'three';
 
 interface FallingGrainsProps {
   count?: number;
+  color1?: string;
+  color2?: string;
 }
 
-export default function FallingGrains({ count = 1000 }: FallingGrainsProps) {
+export default function FallingGrains({ count = 1000, color1 = "#9b6dd7", color2 = "#c9a7f0" }: FallingGrainsProps) {
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
 
@@ -15,62 +17,93 @@ export default function FallingGrains({ count = 1000 }: FallingGrainsProps) {
   const particles = useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
-      // Store percentages (0 to 1 or -0.5 to 0.5) instead of fixed units
+      // Position percentages
       const px = Math.random() - 0.5;
       const pz = Math.random() - 0.5;
-      const py = Math.random() * 2; // initial height percentage
+      const py = Math.random() * 2; 
+      
+      // Rotations
       const rx = Math.random() * Math.PI;
       const ry = Math.random() * Math.PI;
       const rz = Math.random() * Math.PI;
-      const speed = 0.001 + Math.random() * 0.003; // percentage per frame
-      const rotSpeed = 0.01 + Math.random() * 0.03;
+      
+      // Speeds
+      const speed = 0.001 + Math.random() * 0.003; 
+      const rotXSpeed = (Math.random() - 0.5) * 0.05;
+      const rotYSpeed = (Math.random() - 0.5) * 0.05;
+      const rotZSpeed = (Math.random() - 0.5) * 0.05;
+      
+      // Sway parameters
+      const swaySpeed = 0.5 + Math.random() * 1.5;
+      const swayAmp = 0.02 + Math.random() * 0.08;
+      const seed = Math.random() * 100;
+      
+      // Appearance
       const isWheat = Math.random() > 0.5;
-      temp.push({ px, py, pz, rx, ry, rz, speed, rotSpeed, isWheat });
+      // Vary size significantly for depth of field effect (some very close, some far)
+      const baseScale = 0.5 + Math.random() * 1.5;
+
+      temp.push({ px, py, pz, rx, ry, rz, speed, rotXSpeed, rotYSpeed, rotZSpeed, swaySpeed, swayAmp, seed, isWheat, baseScale });
     }
     return temp;
   }, [count]);
 
   const colorArray = useMemo(() => {
     const colors = new Float32Array(count * 3);
-    const colorWheat = new THREE.Color("#9b6dd7"); // theme purple
-    const colorRice = new THREE.Color("#c9a7f0");  // theme light purple
+    const c1 = new THREE.Color(color1);
+    const c2 = new THREE.Color(color2);
     
     for (let i = 0; i < count; i++) {
-      const color = particles[i].isWheat ? colorWheat : colorRice;
-      color.toArray(colors, i * 3);
+      // Give each grain slight color variation for realism
+      const baseColor = particles[i].isWheat ? c1.clone() : c2.clone();
+      
+      // Randomize lightness slightly
+      const hsl = { h: 0, s: 0, l: 0 };
+      baseColor.getHSL(hsl);
+      baseColor.setHSL(hsl.h, hsl.s, hsl.l + (Math.random() * 0.1 - 0.05));
+      
+      baseColor.toArray(colors, i * 3);
     }
     return colors;
-  }, [count, particles]);
+  }, [count, particles, color1, color2]);
 
-  useFrame(() => {
+  useFrame((state) => {
     if (!meshRef.current) return;
     
-    // Calculate bounds dynamically based on current viewport
-    const width = Math.max(viewport.width * 2, 40); // ensure minimum spread
+    const time = state.clock.getElapsedTime();
+    const width = Math.max(viewport.width * 2, 40); 
     const height = Math.max(viewport.height * 2, 30);
     const depth = width;
 
     particles.forEach((particle, i) => {
       particle.py -= particle.speed;
-      particle.rx += particle.rotSpeed;
-      particle.ry += particle.rotSpeed;
+      particle.rx += particle.rotXSpeed;
+      particle.ry += particle.rotYSpeed;
+      particle.rz += particle.rotZSpeed;
       
-      // Reset to top when it falls below screen
       if (particle.py < -0.5) {
         particle.py = 1.0 + Math.random() * 0.5; 
       }
       
-      // Convert percentages to actual 3D coordinates based on viewport
-      const actualX = particle.px * width;
+      // Add natural wind sway using sine wave
+      const swayOffset = Math.sin(time * particle.swaySpeed + particle.seed) * particle.swayAmp * width;
+      
+      const actualX = (particle.px * width) + swayOffset;
       const actualY = particle.py * height - (height * 0.25);
       const actualZ = particle.pz * depth;
 
       dummy.position.set(actualX, actualY, actualZ);
       dummy.rotation.set(particle.rx, particle.ry, particle.rz);
       
-      // slightly diff scale for rice vs wheat
-      const scale = particle.isWheat ? 1.2 : 0.8;
-      dummy.scale.set(scale, scale, scale);
+      // Realistic grain scaling:
+      // Rice is long and slender. Wheat is thick and oval.
+      if (particle.isWheat) {
+        // Wheat: plumper
+        dummy.scale.set(0.8 * particle.baseScale, 1.3 * particle.baseScale, 0.8 * particle.baseScale);
+      } else {
+        // Rice: thinner and longer
+        dummy.scale.set(0.35 * particle.baseScale, 1.6 * particle.baseScale, 0.35 * particle.baseScale);
+      }
       
       dummy.updateMatrix();
       meshRef.current!.setMatrixAt(i, dummy.matrix);
@@ -80,16 +113,16 @@ export default function FallingGrains({ count = 1000 }: FallingGrainsProps) {
   });
 
   const geometry = useMemo(() => {
-    // simple capsule for a grain
-    const geo = new THREE.CapsuleGeometry(0.03, 0.1, 4, 8);
-    // add color attribute for instances
+    // Sphere scaled into an oval looks much more like organic grains than a cylinder/capsule
+    const geo = new THREE.SphereGeometry(0.06, 16, 16);
     geo.setAttribute('color', new THREE.InstancedBufferAttribute(colorArray, 3));
     return geo;
   }, [colorArray]);
 
   return (
     <instancedMesh ref={meshRef} args={[geometry, undefined, count]}>
-      <meshStandardMaterial vertexColors roughness={0.4} metalness={0.2} />
+      {/* High roughness, low metalness gives a natural, organic matte look to the grains */}
+      <meshStandardMaterial vertexColors roughness={0.7} metalness={0.1} />
     </instancedMesh>
   );
 }

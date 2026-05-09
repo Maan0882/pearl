@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Leaf, ShieldCheck, Truck, ChevronRight, Award, Settings, Package, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Global3DGrains from "@/app/components/3d-scene/Global3DGrains";
+import CTAGrains from "@/app/components/3d-scene/CTAGrains";
 
 export const metadata: Metadata = {
   title: "About Us — Pearl Logistics",
@@ -11,6 +13,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen pt-20">
+      <Global3DGrains />
       {/* PAGE HEADER */}
       <section className="py-16 md:py-24 relative overflow-hidden">
         {/* Background Image */}
@@ -84,7 +87,7 @@ export default function AboutPage() {
                   ))}
                 </div>
               </div>
-              <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg border border-border">
+              <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg border border-border z-20">
                 <Image src="/images/products_banner.png" alt="Pearl Logistics grain commodities" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-linear-to-r from-(--accent)/10 to-transparent pointer-events-none" />
               </div>
@@ -138,7 +141,7 @@ export default function AboutPage() {
                   
                   {/* Image Panel */}
                   <div className={`pl-16 md:pl-0 w-full md:w-1/2 ${i % 2 === 0 ? 'md:pl-16 md:order-last' : 'md:pr-16'}`}>
-                    <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl border border-border group-hover:shadow-2xl transition-all duration-500">
+                    <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl border border-border group-hover:shadow-2xl transition-all duration-500 z-20">
                       <Image 
                         src={item.img} 
                         alt={item.title} 
@@ -157,8 +160,9 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16" style={{ background: "var(--bg)" }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-16 relative" style={{ background: "var(--bg)" }}>
+        <CTAGrains />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="glass-purple rounded-3xl p-10 md:p-14 border border-(--accent-light)/30">
             <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Ready to Partner with Us?</h2>
             <p className="text-text-muted mb-8 max-w-lg mx-auto">Reach out to discuss bulk orders, custom packaging, or international shipping solutions.</p>

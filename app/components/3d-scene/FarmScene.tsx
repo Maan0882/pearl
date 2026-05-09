@@ -29,16 +29,16 @@ function CameraRig() {
       }
     });
 
-    // Move camera slowly through the field
+    // Move camera slightly through the field to reduce zooming
     tl.to(cameraRef.current.position, {
-      z: 5,
-      y: 1.5,
+      z: 12,
+      y: 2.5,
       ease: "power1.inOut"
     }, 0);
     
     // Slight pan
     tl.to(cameraRef.current.rotation, {
-      y: 0.2,
+      y: 0.1,
       ease: "power1.inOut"
     }, 0);
 
