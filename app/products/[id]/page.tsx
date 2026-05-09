@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { 
+import {
   ArrowLeft,
-  ArrowRight, 
-  ChevronRight, 
-  CheckCircle2, 
-  Package, 
-  Globe, 
-  ShieldCheck, 
+  ArrowRight,
+  ChevronRight,
+  CheckCircle2,
+  Package,
+  Globe,
+  ShieldCheck,
   Info,
   Mail,
   Phone,
-  MessageSquare
+  MessageSquare,
 } from "lucide-react";
 import { products } from "@/app/data/products";
 
@@ -21,7 +21,9 @@ interface ProductPageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
   const { id } = await params;
   const product = products.find((p) => p.id === id);
 
@@ -68,100 +70,114 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </div>
       </nav> */}
 
-      {/* PRODUCT HERO SECTION */}
-      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent opacity-[0.03] rounded-l-[100px] blur-3xl pointer-events-none" />
+      <section className="py-10 md:py-10 bg-[#f5f5f5] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
-            {/* PRODUCT IMAGE */}
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative aspect-square rounded-3xl overflow-hidden border border-border shadow-xl bg-bg-alt">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-                {product.badge && (
-                  <div className="absolute top-6 left-6 px-4 py-2 bg-accent text-white text-xs font-bold rounded-full shadow-lg animate-badge-float">
+          {/* TITLE */}
+          <div className="text-center max-w-4xl mx-auto mb-5">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-text leading-tight mb-6">
+              {product.name}
+            </h1>
+          </div>
+
+          {/* IMAGE FIRST */}
+          <div className="relative w-full max-w-[900px] mx-auto mb-10 px-4 sm:px-0">
+            <div
+              className="relative w-full overflow-hidden rounded-[32px] shadow-2xl border border-border bg-white aspect-[4/3] sm:aspect-[1100/460]"
+              /* Change: Taller aspect ratio on mobile (4:3) and wider on desktop (2.5:1) */
+              style={{
+                aspectRatio:
+                  typeof window !== "undefined" && window.innerWidth < 640
+                    ? "4 / 3"
+                    : "1100 / 460",
+              }}
+            >
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="(max-width: 900px) 100vw, 900px"
+              />
+
+              {/* Subtle Dark Overlay */}
+              <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+
+              {/* Top Left Badge */}
+              {product.badge && (
+                <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20">
+                  <span className="px-3 py-1 md:px-5 md:py-2 rounded-full bg-accent text-white text-[10px] md:text-sm font-bold shadow-lg">
                     {product.badge}
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* PRODUCT INFO */}
-            <div className="space-y-8">
-              <div className="animate-fade-in-up">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-12 h-[2px] bg-accent" />
-                  <span className="text-accent font-bold tracking-widest text-xs uppercase">Premium Commodity</span>
+                  </span>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-text mb-6">
-                  {product.name}
-                </h1>
-                <p className="text-lg text-text-muted leading-relaxed mb-8">
-                  {product.fullDescription}
-                </p>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                  <div className="flex items-center gap-3 p-4 bg-bg rounded-2xl border border-border">
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                      <Package className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-text-muted font-medium">Min. Order (MOQ)</p>
-                      <p className="text-sm text-text font-bold">{product.moq}</p>
-                    </div>
+              )}
+
+              {/* --- INFO CARDS OVERLAY --- */}
+              {/* Change: 'flex-row' instead of 'flex-col' to keep them small and side-by-side */}
+              <div className="absolute bottom-1 left-3 right-3 md:bottom-2 md:left-4 md:right-4 z-5 flex flex-row justify-between gap-2 md:gap-4">
+                {/* MOQ Card */}
+                <div className="bg-white/90 backdrop-blur-md rounded-xl md:rounded-2xl border border-border p-2 md:p-4 flex items-center gap-2 md:gap-3 shadow-xl flex-1 max-w-[180px] md:max-w-xs">
+                  <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                    <Package className="h-3.5 w-3.5 md:h-5 md:h-5" />
                   </div>
-                  <div className="flex items-center gap-3 p-4 bg-bg rounded-2xl border border-border">
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-                      <Globe className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-text-muted font-medium">Origin</p>
-                      <p className="text-sm text-text font-bold">{product.origin}</p>
-                    </div>
+                  <div className="text-left overflow-hidden">
+                    <p className="text-[8px] md:text-[10px] uppercase tracking-wide text-text-muted font-bold truncate">
+                      Min. Order
+                    </p>
+                    <p className="text-[10px] md:text-base font-extrabold text-text leading-tight truncate">
+                      {product.moq}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
-                  <Link href="/contact" className="btn-primary flex items-center gap-2 px-8 py-4">
-                    <MessageSquare className="h-5 w-5" />
-                    Bulk Inquiry Now
-                  </Link>
-                  <a href="https://wa.me/your-number" className="btn-secondary flex items-center gap-2 px-8 py-4">
-                    <Phone className="h-5 w-5 text-green-600" />
-                    WhatsApp Us
-                  </a>
+                {/* Origin Card */}
+                <div className="bg-white/90 backdrop-blur-md rounded-xl md:rounded-2xl border border-border p-2 md:p-4 flex items-center gap-2 md:gap-3 shadow-xl flex-1 max-w-[180px] md:max-w-xs">
+                  <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                    <Globe className="h-3.5 w-3.5 md:h-5 md:h-5" />
+                  </div>
+                  <div className="text-left overflow-hidden">
+                    <p className="text-[8px] md:text-[10px] uppercase tracking-wide text-text-muted font-bold truncate">
+                      Origin
+                    </p>
+                    <p className="text-[10px] md:text-base font-extrabold text-text leading-tight truncate">
+                      {product.origin}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* DETAILS AFTER IMAGE */}
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-md md:text-md text-text-muted leading-relaxed">
+              {product.fullDescription}
+            </p>
           </div>
         </div>
       </section>
 
       {/* PRODUCT VARIETIES SECTION */}
       {product.varieties && product.varieties.length > 0 && (
-        <section className="py-20 bg-white">
+        <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-5">
               <div className="section-label mx-auto mb-4">Our Range</div>
               <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">
                 Premium <span className="text-gradient">Varieties</span>
               </h2>
               <p className="text-text-muted text-lg max-w-2xl mx-auto">
-                We offer a diverse selection of {product.name.toLowerCase()} to cater to different culinary needs and market preferences.
+                We offer a diverse selection of {product.name.toLowerCase()} to
+                cater to different culinary needs and market preferences.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {product.varieties.map((variety, index) => (
-                <div key={index} className="group relative bg-bg-alt rounded-[32px] overflow-hidden border border-border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                <div
+                  key={index}
+                  className="group relative bg-bg-alt rounded-[32px] overflow-hidden border border-border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={variety.image}
@@ -173,12 +189,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                     <div className="absolute inset-0 bg-linear-to-t from-text/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                   <div className="p-8">
-                    <h3 className="text-xl font-bold text-text mb-3 group-hover:text-accent transition-colors">{variety.name}</h3>
+                    <h3 className="text-xl font-bold text-text mb-3 group-hover:text-accent transition-colors">
+                      {variety.name}
+                    </h3>
                     <p className="text-text-muted text-sm leading-relaxed">
                       {variety.description}
                     </p>
                     <div className="mt-6 flex items-center gap-2 text-accent font-bold text-sm opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                      Inquire for this variety <ArrowRight className="h-4 w-4" />
+                      Inquire for this variety{" "}
+                      <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>
                 </div>
@@ -268,19 +287,28 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {/* Decorative background elements */}
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-glow/10 rounded-full blur-3xl pointer-events-none" />
-            
+
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">
-                Ready to Order <span className="text-gradient">Bulk {product.name}?</span>
+                Ready to Order{" "}
+                <span className="text-gradient">Bulk {product.name}?</span>
               </h2>
               <p className="text-text-muted text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                Our trade experts are ready to provide you with the best market rates, custom packaging solutions, and seamless international logistics.
+                Our trade experts are ready to provide you with the best market
+                rates, custom packaging solutions, and seamless international
+                logistics.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link href="/contact" className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 text-lg shadow-[0_10px_20px_-5px_var(--accent)]">
+                <Link
+                  href="/contact"
+                  className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 text-lg shadow-[0_10px_20px_-5px_var(--accent)]"
+                >
                   Contact Us Now <ArrowRight className="h-6 w-6" />
                 </Link>
-                <a href="tel:+917990353622" className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 text-lg">
+                <a
+                  href="tel:+917990353622"
+                  className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 text-lg"
+                >
                   <Phone className="h-5 w-5" /> Call Expert
                 </a>
               </div>
@@ -293,7 +321,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       <section className="py-20 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
           <div className="section-label mx-auto mb-4">Explore More</div>
-          <h2 className="text-3xl md:text-4xl font-bold text-text">Our Other Commodities</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-text">
+            Our Other Commodities
+          </h2>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -301,7 +331,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <Link key={p.id} href={`/products/${p.id}`} className="group">
                 <div className="bg-white rounded-3xl overflow-hidden border border-border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                   <div className="relative aspect-video">
-                    <Image src={p.image} alt={p.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-6 left-6 text-white text-left">
                       <h3 className="text-xl font-bold mb-1">{p.name}</h3>
@@ -319,7 +354,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
       {/* BACK TO PRODUCTS */}
       <div className="py-12 text-center border-t border-border">
-        <Link href="/products" className="inline-flex items-center gap-2 text-accent font-bold hover:gap-4 transition-all">
+        <Link
+          href="/products"
+          className="inline-flex items-center gap-2 text-accent font-bold hover:gap-4 transition-all"
+        >
           <ArrowLeft className="h-5 w-5" /> Back to All Products
         </Link>
       </div>
