@@ -23,7 +23,7 @@ export default function Lighting() {
       
       {/* Optional volumetric environment */}
       <Environment preset="sunset" />
-      <fog attach="fog" args={['#1a1525', 5, 35]} />
+      <fog attach="fog" args={['#faf7fe', 10, 50]} />
     </>
   );
 }

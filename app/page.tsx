@@ -59,7 +59,7 @@ export default function Home() {
 
       {/* ═══════════════════════ ABOUT SUMMARY ═══════════════════════ */}
       <section className="py-24 md:py-32 relative border-t border-white/5" style={{ background: "var(--bg-alt)" }}>
-        <SectionGrains count={30} color1="#d4af37" color2="#ffffff" /> {/* 50% grains, Gold & White */}
+        <SectionGrains count={38} color1="#d4af37" color2="#ffffff" /> {/* 50% grains, Gold & White */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group z-20">
@@ -106,7 +106,7 @@ export default function Home() {
 
       {/* ═══════════════════════ ELEGANT PRODUCTS SHOWCASE ═══════════════════════ */}
       <section className="py-24 md:py-40 relative" style={{ background: "var(--bg)" }}>
-        <SectionGrains count={30} color1="#9b6dd7" color2="#c9a7f0" /> {/* 50% grains, Purple theme */}
+        <SectionGrains count={38} color1="#9b6dd7" color2="#c9a7f0" /> {/* 50% grains, Purple theme */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           <div className="text-center mb-24 md:mb-40">
@@ -196,7 +196,7 @@ export default function Home() {
 
       {/* ═══════════════════════ ELEGANT CTA ═══════════════════════ */}
       <section className="py-24 relative border-t border-white/5" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
-        <SectionGrains count={30} color1="#8fb339" color2="#e8ecd7" /> {/* 50% grains, Green theme */}
+        <SectionGrains count={38} color1="#8fb339" color2="#e8ecd7" /> {/* 50% grains, Green theme */}
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent blur-[120px] mix-blend-screen" />

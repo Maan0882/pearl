@@ -32,7 +32,7 @@ export default function Global3DGrains() {
       <Canvas dpr={[1, 1.5]} gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }} camera={{ position: [0, 0, 15], fov: 45 }}>
         <Lighting />
         {/* Reduce count to 200 for better mobile performance while maintaining the effect */}
-        <FallingGrains count={200} />
+        <FallingGrains count={220} />
       </Canvas>
     </div>
   );
