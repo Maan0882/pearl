@@ -144,7 +144,7 @@ export default function Home() {
 
             {/* Product 2 - Wheat */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-              <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-20">
+              <div className="order-2 lg:order-1 lg:col-span-5 lg:-mr-24 relative z-30">
                 <div className="glass-purple p-10 md:p-16 rounded-sm border border-white/5 backdrop-blur-xl shadow-2xl">
                   <span className="text-accent text-sm font-semibold tracking-widest uppercase mb-4 block">02 &mdash; Premium</span>
                   <h3 className="text-3xl md:text-5xl font-bold text-text mb-6">Golden Wheat</h3>
