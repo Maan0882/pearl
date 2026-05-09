@@ -1,16 +1,16 @@
 import { ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import FloatingGrains from "@/app/components/FloatingGrains";
+import Global3DGrains from "@/app/components/3d-scene/Global3DGrains";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <FloatingGrains />
+      <Global3DGrains />
 
       {/* ═══════════════════════ CINEMATIC HERO ═══════════════════════ */}
       <section
-        className="relative min-h-[100dvh] w-full flex items-center justify-center pt-20 overflow-hidden bg-black"
+        className="relative min-h-[100dvh] w-full flex items-center justify-center pt-20 overflow-hidden"
         style={{
           background: "linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 30%, var(--surface) 60%, var(--bg-alt) 100%)",
         }}
@@ -26,7 +26,7 @@ export default function Home() {
             playsInline
             // Using object-contain on mobile prevents harsh cropping so the entire video is visible.
             // On larger screens (laptops, monitors, TVs), object-cover perfectly fills the background.
-            className="w-full h-full object-contain lg:object-cover"
+            className="w-full h-full object-contain lg:object-cover blur-[4px] scale-105"
           />
         </div>
 
@@ -65,7 +65,7 @@ export default function Home() {
       <section className="py-24 md:py-32 relative border-t border-white/5" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group">
+            <div className="relative h-[400px] lg:h-[650px] w-full rounded-tl-[100px] rounded-br-[100px] overflow-hidden shadow-2xl group z-10">
               <Image
                 src="/RIce_&_Wheat_In_Hand.jpeg"
                 alt="Harvesting Grains"
@@ -122,7 +122,7 @@ export default function Home() {
 
             {/* Product 1 - Basmati */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-10">
                 <Image
                   src="/images/basmati_rice.png"
                   alt="Basmati Rice"
@@ -158,7 +158,7 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+              <div className="order-1 lg:order-2 lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-10">
                 <Image
                   src="/images/wheat_grains.png"
                   alt="Premium Wheat"
@@ -170,7 +170,7 @@ export default function Home() {
 
             {/* Product 3 - Normal Rice */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center">
-              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden">
+              <div className="lg:col-span-7 relative h-[400px] md:h-[600px] w-full overflow-hidden z-10">
                 <Image
                   src="/images/normal_rice.png"
                   alt="Normal Rice"
@@ -198,6 +198,7 @@ export default function Home() {
 
       {/* ═══════════════════════ ELEGANT CTA ═══════════════════════ */}
       <section className="py-24 relative border-t border-white/5" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
+
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-accent blur-[120px] mix-blend-screen" />
         </div>

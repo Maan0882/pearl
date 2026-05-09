@@ -1,6 +1,7 @@
 import { Wheat, Mail, Phone, MapPin, ArrowUpRight, FileText } from "lucide-react";
 import Link from "next/link";
 import Image from 'next/image';
+import FarmScene from "@/app/components/3d-scene/FarmScene";
 
 export default function Footer() {
   return (
@@ -13,6 +14,9 @@ export default function Footer() {
       {/* Decorative grain shapes in background */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent opacity-[0.04] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-glow opacity-[0.04] blur-[80px] pointer-events-none" />
+
+      {/* 3D Farm Scene Background */}
+      <FarmScene />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
@@ -30,7 +34,7 @@ export default function Footer() {
                   />
               </div>
             </div>
-            <p className="text-[#9b8ab3] text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-gray-200 text-sm leading-relaxed mb-6 max-w-xs">
               Delivering premium quality Basmati Rice, Normal Rice, and Wheat
               with uncompromising standards of quality and reliability across 50+
               countries.
@@ -60,7 +64,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-[#9b8ab3] hover:bg-(--accent)/20 hover:text-accent-light transition-all text-xs font-semibold"
+                  className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-gray-200 hover:bg-(--accent)/20 hover:text-accent-light transition-all text-xs font-semibold"
                   aria-label={social.name}
                 >
                   <social.Icon className="h-4 w-4" />
@@ -84,7 +88,7 @@ export default function Footer() {
                 <li key={i}>
                   <Link
                     href={link.href}
-                    className="text-[#9b8ab3] hover:text-accent-light transition-colors text-sm flex items-center gap-1 group"
+                    className="text-gray-200 hover:text-accent-light transition-colors text-sm flex items-center gap-1 group"
                   >
                     {link.name}
                     <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
@@ -108,7 +112,7 @@ export default function Footer() {
                 <li key={i}>
                   <Link
                     href="/products"
-                    className="text-[#9b8ab3] hover:text-accent-light transition-colors text-sm flex items-center gap-1 group"
+                    className="text-gray-200 hover:text-accent-light transition-colors text-sm flex items-center gap-1 group"
                   >
                     {product}
                     <ArrowUpRight className="h-3 w-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all" />
@@ -128,30 +132,31 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="h-4 w-4 text-accent-light" />
                 </div>
-                <span className="text-sm text-[#9b8ab3] leading-relaxed">
+                <span className="text-sm text-gray-200 leading-relaxed">
                   D 103, SHREE RADHE SHYAM, SEVASI TP 2, BHAYLI VADODARA, 391410, VADODARA, GUJARAT
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
-                  <Phone className="h-4 w-4 text-accent-light" />
+              <li className="flex flex-wrap items-center gap-x-6 gap-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
+                    <Phone className="h-4 w-4 text-accent-light" />
+                  </div>
+                  <span className="text-sm text-gray-200">+91 7990353622</span>
+                
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
+                    <FileText className="h-4 w-4 text-accent-light" />
+                  </div>
+                  <span className="text-sm text-gray-200 whitespace-nowrap">
+                    IEC: CJCPG0702N
+                  </span>
                 </div>
-                <span className="text-sm text-[#9b8ab3]">+91 7990353622</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                   <Mail className="h-4 w-4 text-accent-light" />
                 </div>
-                <span className="text-sm text-[#9b8ab3]">
+                <span className="text-sm text-gray-200">
                   kamalgohel457@gmail.com
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
-                  <FileText className="h-4 w-4 text-accent-light" />
-                </div>
-                <span className="text-sm text-[#9b8ab3]">
-                  IEC Number: CJCPG0702N
                 </span>
               </li>
             </ul>
@@ -160,10 +165,10 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#6b5691] text-sm">
+          <p className="text-gray-300 text-sm">
             &copy; {new Date().getFullYear()} Pearl Logistics | Developed with 🫶 by Techstrota | All Rights Reserved
           </p>
-          <div className="flex items-center gap-6 text-sm text-[#6b5691]">
+          <div className="flex items-center gap-6 text-sm text-gray-300">
             <a href="#" className="hover:text-accent-light transition-colors">
               Privacy Policy
             </a>

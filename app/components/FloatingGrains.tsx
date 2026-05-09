@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface GrainElement {
   id: number;
@@ -15,21 +15,38 @@ interface GrainElement {
   rotSpeed: number;   // rotation deg per frame
   opacity: number;
   delay: number;      // animation start delay (ms)
+  theme?: "light" | "dark"; // color theme
 }
 
 export default function FloatingGrains() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show grains after scrolling past 50% of the viewport (hero section)
+      if (window.scrollY > window.innerHeight * 0.5) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const totalHeight = document.documentElement.scrollHeight;
     const vw = window.innerWidth;
 
     // Spread elements across the full page height, not just viewport
     const elements: GrainElement[] = [
-      // Large wheat stalks — hero-section anchors
+      // Original light elements
       { id: 0,  type: "wheat-stalk", x: 6,   startY: -200, size: 1.4, speed: 0.55, swayAmp: 18, swayFreq: 0.0008, rotStart: -12, rotSpeed: 0.018, opacity: 0.55, delay: 0 },
       { id: 1,  type: "wheat-ear",   x: 91,  startY: -600, size: 1.2, speed: 0.45, swayAmp: 22, swayFreq: 0.0006, rotStart: 8,  rotSpeed: -0.014, opacity: 0.5,  delay: 1200 },
       { id: 2,  type: "rice-grain",  x: 78,  startY: -300, size: 1.0, speed: 0.70, swayAmp: 14, swayFreq: 0.0011, rotStart: 30, rotSpeed: 0.022,  opacity: 0.45, delay: 400 },
@@ -42,6 +59,15 @@ export default function FloatingGrains() {
       { id: 9,  type: "rice-grain",  x: 12,  startY: -400, size: 1.1, speed: 0.72, swayAmp: 10, swayFreq: 0.0013, rotStart: 60, rotSpeed: 0.030,  opacity: 0.42, delay: 900 },
       { id: 10, type: "wheat-ear",   x: 96,  startY: -1100,size: 1.3, speed: 0.44, swayAmp: 28, swayFreq: 0.0006, rotStart: -5, rotSpeed: 0.015,  opacity: 0.50, delay: 700 },
       { id: 11, type: "leaf",        x: 62,  startY: -700, size: 0.9, speed: 0.42, swayAmp: 32, swayFreq: 0.0005, rotStart: 10, rotSpeed: -0.012, opacity: 0.36, delay: 1400 },
+      // New dark elements for depth and parallax
+      { id: 12, type: "wheat-stalk", x: 15,  startY: -300, size: 0.7, speed: 0.35, swayAmp: 12, swayFreq: 0.0006, rotStart: -25, rotSpeed: 0.01,  opacity: 0.8,  delay: 500,  theme: "dark" },
+      { id: 13, type: "rice-grain",  x: 88,  startY: -150, size: 0.6, speed: 0.45, swayAmp: 8,  swayFreq: 0.0009, rotStart: 45,  rotSpeed: 0.015, opacity: 0.7,  delay: 1100, theme: "dark" },
+      { id: 14, type: "wheat-ear",   x: 35,  startY: -800, size: 0.8, speed: 0.30, swayAmp: 15, swayFreq: 0.0005, rotStart: 12,  rotSpeed: -0.01, opacity: 0.85, delay: 900,  theme: "dark" },
+      { id: 15, type: "leaf",        x: 75,  startY: -1000,size: 0.75,speed: 0.28, swayAmp: 20, swayFreq: 0.0004, rotStart: -15, rotSpeed: 0.008, opacity: 0.65, delay: 300,  theme: "dark" },
+      { id: 16, type: "wheat-stalk", x: 48,  startY: -400, size: 0.65,speed: 0.40, swayAmp: 10, swayFreq: 0.0007, rotStart: -5,  rotSpeed: -0.012,opacity: 0.75, delay: 1500, theme: "dark" },
+      { id: 17, type: "rice-grain",  x: 25,  startY: -1300,size: 0.85,speed: 0.50, swayAmp: 14, swayFreq: 0.0010, rotStart: -60, rotSpeed: 0.02,  opacity: 0.8,  delay: 750,  theme: "dark" },
+      { id: 18, type: "wheat-ear",   x: 82,  startY: -500, size: 0.7, speed: 0.32, swayAmp: 18, swayFreq: 0.0005, rotStart: 25,  rotSpeed: -0.015,opacity: 0.7,  delay: 1300, theme: "dark" },
+      { id: 19, type: "leaf",        x: 5,   startY: -1100,size: 0.6, speed: 0.25, swayAmp: 25, swayFreq: 0.0003, rotStart: 30,  rotSpeed: 0.005, opacity: 0.6,  delay: 200,  theme: "dark" },
     ];
 
     const nodes: HTMLDivElement[] = [];
@@ -62,7 +88,7 @@ export default function FloatingGrains() {
         z-index: 1;
         transition: opacity 1.2s ease;
       `;
-      div.innerHTML = getSVG(el.type, el.size, el.opacity);
+      div.innerHTML = getSVG(el.type, el.size, el.opacity, el.theme);
       container.appendChild(div);
       nodes.push(div);
 
@@ -114,7 +140,7 @@ export default function FloatingGrains() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 overflow-hidden pointer-events-none z-[1]"
+      className={`fixed inset-0 overflow-hidden pointer-events-none z-[1] transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       aria-hidden="true"
     />
   );
@@ -122,17 +148,41 @@ export default function FloatingGrains() {
 
 // ── SVG shapes ──────────────────────────────────────────────────────────────
 
-function getSVG(type: GrainElement["type"], scale: number, opacity: number): string {
+function getSVG(type: GrainElement["type"], scale: number, opacity: number, theme: "light" | "dark" = "light"): string {
   switch (type) {
     case "wheat-stalk":
-      return wheatStalk(scale, opacity);
+      return applyTheme(wheatStalk(scale, opacity), theme);
     case "wheat-ear":
-      return wheatEar(scale, opacity);
+      return applyTheme(wheatEar(scale, opacity), theme);
     case "rice-grain":
-      return riceGrain(scale, opacity);
+      return applyTheme(riceGrain(scale, opacity), theme);
     case "leaf":
-      return grainLeaf(scale, opacity);
+      return applyTheme(grainLeaf(scale, opacity), theme);
   }
+}
+
+function applyTheme(svgString: string, theme: "light" | "dark"): string {
+  if (theme !== "dark") return svgString;
+
+  const colorMap: Record<string, string> = {
+    "#c9a7f0": "#5a3789", // darker
+    "#e8d5ff": "#7a57a9", // darker
+    "#9b6dd7": "#3b1e60", // much darker
+    "#e2d4f3": "#6b479a",
+    "#ffffff": "#9d76cc",
+    "#ddd0f5": "#6b479a",
+    "#7b4bbf": "#2d1452",
+    "rgba(155,109,215,0.25)": "rgba(59,30,96,0.6)",
+    "rgba(155,109,215,0.3)": "rgba(59,30,96,0.6)",
+    "rgba(155,109,215,0.35)": "rgba(59,30,96,0.6)",
+    "rgba(155,109,215,0.2)": "rgba(59,30,96,0.6)"
+  };
+
+  let result = svgString;
+  for (const [light, dark] of Object.entries(colorMap)) {
+    result = result.split(light).join(dark);
+  }
+  return result;
 }
 
 function wheatStalk(scale: number, opacity: number): string {
