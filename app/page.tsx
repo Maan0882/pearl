@@ -17,16 +17,14 @@ export default function Home() {
       >
 
         {/* Responsive Background Video */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-75">
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center">
           <video
             src="/pearlvideo.mp4"
             autoPlay
             loop
             muted
             playsInline
-            // Using object-contain on mobile prevents harsh cropping so the entire video is visible.
-            // On larger screens (laptops, monitors, TVs), object-cover perfectly fills the background.
-            className="w-full h-full object-contain lg:object-cover blur-[4px] scale-105"
+            className="w-full h-full object-cover opacity-20"
           />
         </div>
 

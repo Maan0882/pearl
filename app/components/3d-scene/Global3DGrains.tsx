@@ -29,10 +29,10 @@ export default function Global3DGrains() {
       className={`fixed inset-0 z-[1] pointer-events-none transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
       aria-hidden="true"
     >
-      <Canvas dpr={[1, 2]} gl={{ antialias: true, alpha: true }} camera={{ position: [0, 0, 15], fov: 45 }}>
+      <Canvas dpr={[1, 1.5]} gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }} camera={{ position: [0, 0, 15], fov: 45 }}>
         <Lighting />
-        {/* Adjust count for global view to not overwhelm performance since it covers the whole screen */}
-        <FallingGrains count={400} />
+        {/* Reduce count to 200 for better mobile performance while maintaining the effect */}
+        <FallingGrains count={200} />
       </Canvas>
     </div>
   );

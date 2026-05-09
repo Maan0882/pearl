@@ -88,7 +88,7 @@ export default function FallingGrains({ count = 1000 }: FallingGrainsProps) {
   }, [colorArray]);
 
   return (
-    <instancedMesh ref={meshRef} args={[geometry, undefined, count]} castShadow>
+    <instancedMesh ref={meshRef} args={[geometry, undefined, count]}>
       <meshStandardMaterial vertexColors roughness={0.4} metalness={0.2} />
     </instancedMesh>
   );
