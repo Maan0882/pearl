@@ -92,7 +92,7 @@ export default function Home() {
               </p>
 
               <div className="pt-6">
-                <Link href="/about" className="group inline-flex items-center gap-3 text-text hover:text-accent transition-colors uppercase tracking-widest text-sm font-semibold">
+                <Link href="/ about" className="group inline-flex items-center gap-3 text-text hover:text-accent transition-colors uppercase tracking-widest text-sm font-semibold">
                   Discover Our Story
                   <span className="w-8 h-8 rounded-full border border-text/20 flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all">
                     <ArrowRight className="h-4 w-4" />
