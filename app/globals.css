@@ -44,6 +44,7 @@ body {
   color: var(--text);
   font-family: var(--font-sans), 'Inter', Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 /* ─── Custom Scrollbar ─── */
@@ -587,6 +588,16 @@ body {
 }
 
 /* ─── Responsive helpers ─── */
+@media (max-width: 1024px) {
+  .lg\:col-span-7, .lg\:col-span-5 {
+    grid-column: span 12 / span 12;
+  }
+  .lg\:-ml-24, .lg\:-mr-24 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .card-3d:hover,
   .feature-card:hover {
@@ -594,6 +605,9 @@ body {
   }
   .stat-number {
     font-size: 2rem;
+  }
+  h1 {
+    font-size: 3.5rem !important;
   }
 }
 
@@ -605,20 +619,37 @@ body {
   .btn-primary, .btn-secondary {
     padding: 12px 24px;
     font-size: 0.9375rem;
+    width: 100%;
+    text-align: center;
   }
   h1 {
+    font-size: 2.75rem !important;
     letter-spacing: -0.02em;
+  }
+  .glass-purple {
+    padding: 2rem !important;
   }
 }
 
 /* Extra small mobile devices (iPhone SE, old Androids) */
 @media (max-width: 375px) {
   html {
-    font-size: 14px;
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 2.25rem !important;
   }
 }
 
-/* 4K, Ultra Wide, and TV Screens */
+/* Tablet / iPad Portrait */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .max-w-7xl {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Large Screens & 4K / TV */
 @media (min-width: 1536px) {
   .max-w-7xl {
     max-width: 90rem !important;
@@ -626,28 +657,92 @@ body {
 }
 
 @media (min-width: 1920px) {
+  :root {
+    --fluid-scale: 1.1;
+  }
   html {
     font-size: 18px;
   }
   .max-w-7xl {
-    max-width: 100rem !important;
+    max-width: 110rem !important;
   }
 }
 
 @media (min-width: 2560px) {
+  :root {
+    --fluid-scale: 1.25;
+  }
   html {
-    font-size: 22px;
+    font-size: 24px;
   }
   .max-w-7xl {
-    max-width: 110rem !important;
+    max-width: 140rem !important;
+  }
+  section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
 
-@media (min-width: 3840px) { /* 4K TVs */
+@media (min-width: 3840px) { /* 8K / Large TV */
+  :root {
+    --fluid-scale: 1.5;
+  }
   html {
     font-size: 32px;
   }
   .max-w-7xl {
-    max-width: 110rem !important;
+    max-width: 180rem !important;
   }
+  .container {
+    max-width: 160rem !important;
+  }
+}
+
+/* Ensure animations stay in background */
+#animation-container, 
+.grain-particle,
+[class*="animate-float"],
+[class*="animate-orbit"],
+[class*="animate-spin-slow"],
+.fixed.inset-0.z-0 {
+  z-index: 1 !important;
+  pointer-events: none;
+}
+
+/* Ensure body is the base layer */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), 'Inter', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Media containers and content should be above background animations */
+section {
+  position: relative;
+  z-index: auto;
+  background-color: transparent; /* Allow background to show through if intended */
+}
+
+/* Specific background sections should have their own background color */
+section[style*="background"] {
+  z-index: auto;
+}
+
+.relative.overflow-hidden img,
+.relative.overflow-hidden video,
+.product-card .card-image,
+section video,
+section img {
+  z-index: 20;
+  position: relative;
+}
+
+.z-10 {
+  z-index: 30 !important;
+}
+
+.z-50 {
+  z-index: 50 !important;
 }
