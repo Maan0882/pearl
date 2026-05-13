@@ -16,6 +16,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { products } from "@/app/data/products";
+import CTAGrains from "@/app/components/3d-scene/CTAGrains";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
@@ -280,34 +281,45 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </div>
       </section> */}
 
-      {/* SIMPLE CTA SECTION */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-purple rounded-[40px] p-10 md:p-16 border border-accent/20 relative overflow-hidden shadow-2xl">
-            {/* Decorative background elements */}
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-glow/10 rounded-full blur-3xl pointer-events-none" />
+      {/* PREMIUM CTA SECTION */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative glass-purple rounded-[48px] p-10 md:p-20 border border-accent/20 overflow-hidden shadow-[0_40px_100px_rgba(155,109,215,0.15)] isolate">
+            
+            {/* Interactive 3D Heap Grains Animation */}
+            <CTAGrains />
 
-            <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">
-                Ready to Order{" "}
-                <span className="text-gradient">Bulk {product.name}?</span>
+            {/* Decorative background glows */}
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-glow/10 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="relative z-10 text-center">
+              <ShieldCheck className="h-14 w-14 text-accent mx-auto mb-8 opacity-90 animate-bounce-slow" />
+              
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-text mb-8 tracking-tight">
+                Secure Bulk Supply <br className="hidden md:block" />
+                <span className="text-gradient font-serif italic pr-2">With Confidence</span>
               </h2>
-              <p className="text-text-muted text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+              
+              <p className="text-text-muted text-lg md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
                 Our trade experts are ready to provide you with the best market
-                rates, custom packaging solutions, and seamless international
-                logistics.
+                rates for <span className="text-text font-bold">{product.name}</span>, custom packaging solutions, and seamless international logistics.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <Link
                   href="/contact"
-                  className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 text-lg shadow-[0_10px_20px_-5px_var(--accent)]"
+                  className="group relative px-12 py-5 bg-text text-bg overflow-hidden transition-all duration-500 rounded-sm w-full sm:w-auto"
                 >
-                  Contact Us Now <ArrowRight className="h-6 w-6" />
+                  <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  <span className="relative z-10 uppercase tracking-[0.2em] text-sm font-bold flex items-center gap-2 justify-center">
+                    Get a Quote <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </Link>
+                
                 <a
                   href="tel:+917990353622"
-                  className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 px-10 py-5 text-lg"
+                  className="group px-12 py-5 border border-text/10 text-text hover:border-accent hover:text-accent transition-all duration-500 uppercase tracking-[0.2em] text-sm font-semibold rounded-sm w-full sm:w-auto flex items-center justify-center gap-3"
                 >
                   <Phone className="h-5 w-5" /> Call Expert
                 </a>

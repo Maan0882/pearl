@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import ProductsGrid from "@/app/components/ProductsGrid";
+import CTAGrains from "@/app/components/3d-scene/CTAGrains";
 
 export const metadata: Metadata = {
   title: "Products — Pearl Logistics",
@@ -60,8 +61,8 @@ export default function ProductsPage() {
             </div>
 
             {/* Floating Image Composition */}
-            <div className="relative hidden lg:block">
-              <div className="relative w-full aspect-square rounded-[60px] overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-700 border-8 border-white">
+            <div className="relative mt-12 lg:mt-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+              <div className="relative w-full max-w-[500px] mx-auto aspect-square rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl lg:rotate-3 hover:rotate-0 transition-transform duration-700 border-4 md:border-8 border-white">
                 <Image
                   src="/combined.png"
                   alt="Premium Grains"
@@ -71,9 +72,9 @@ export default function ProductsPage() {
                 />
               </div>
               {/* Floating Card Overlay */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl border border-border animate-bounce-slow">
-                <p className="text-accent font-bold text-2xl">100%</p>
-                <p className="text-text-muted text-xs font-bold uppercase">
+              <div className="absolute -bottom-4 -left-2 md:-bottom-6 md:-left-6 bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl border border-border animate-bounce-slow">
+                <p className="text-accent font-bold text-xl md:text-2xl">100%</p>
+                <p className="text-text-muted text-[10px] md:text-xs font-bold uppercase">
                   Organic Quality
                 </p>
               </div>
@@ -115,29 +116,49 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 3. NEW CTA DESIGN */}
-      <section className="py-24 bg-text relative overflow-hidden">
-        {/* Background glow */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/20 blur-[120px] rounded-full translate-x-1/2" />
+      {/* 3. ELEGANT CTA SECTION */}
+      <section className="py-32 relative border-t border-white/5 overflow-hidden" style={{ background: "linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)" }}>
+        
+        {/* Interactive 3D Heap Grains Animation */}
+        <CTAGrains />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white/5 border border-white/10 rounded-[48px] p-8 md:p-20 backdrop-blur-md">
-            <div className="max-w-3xl">
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-                Partner with India's Leading Export{" "}
-                <span className="text-accent">Experts.</span>
-              </h2>
-              <p className="text-white/60 text-lg md:text-xl mb-12">
-                Join hundreds of international businesses that trust Pearl
-                Logistics for seamless grain procurement and dependable
-                shipping.
-              </p>
+        {/* Dynamic Background Glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+          <div className="absolute top-0 right-0 w-150 h-150 rounded-full bg-accent blur-[140px] mix-blend-screen animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-120 h-120 rounded-full bg-glow blur-[120px] mix-blend-screen opacity-50" />
+        </div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="glass-purple rounded-[64px] p-12 md:p-24 border border-white/10 backdrop-blur-2xl shadow-[0_32px_80px_rgba(155,109,215,0.12)]">
+            <ShieldCheck className="h-16 w-16 text-accent mx-auto mb-10 opacity-80 animate-bounce-slow" />
+            
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-text mb-8 tracking-tight">
+              Scale Your Supply <br className="hidden md:block" />
+              <span className="font-serif italic text-gradient pr-2">With Perfection</span>
+            </h2>
+            
+            <p className="text-text-muted mb-14 max-w-2xl mx-auto text-lg md:text-2xl font-medium leading-relaxed">
+              Experience the pinnacle of agricultural export logistics. We provide 
+              certified quality, global shipping support, and competitive bulk 
+              pricing tailored to your business needs.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-3 bg-accent hover:bg-white text-white hover:text-text px-12 py-6 rounded-2xl text-xl font-bold transition-all duration-300 shadow-xl"
+                className="group relative px-12 py-5 bg-text text-bg overflow-hidden transition-all duration-500 rounded-sm"
               >
-                Start Your Inquiry
-                <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                <span className="relative z-10 uppercase tracking-[0.2em] text-sm font-bold flex items-center gap-2">
+                  Contact Sales <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+              
+              <Link
+                href="/about"
+                className="group px-12 py-5 border border-text/10 text-text hover:border-accent hover:text-accent transition-all duration-500 uppercase tracking-[0.2em] text-sm font-semibold rounded-sm"
+              >
+                Our Quality Standards
               </Link>
             </div>
           </div>
