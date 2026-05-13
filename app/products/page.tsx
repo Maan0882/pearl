@@ -72,9 +72,9 @@ export default function ProductsPage() {
                 />
               </div>
               {/* Floating Card Overlay */}
-              <div className="absolute -bottom-4 -left-2 md:-bottom-6 md:-left-6 bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl border border-border animate-bounce-slow">
-                <p className="text-accent font-bold text-xl md:text-2xl">100%</p>
-                <p className="text-text-muted text-[10px] md:text-xs font-bold uppercase">
+              <div className="absolute bottom-10 left-4 md:-bottom-6 md:-left-6 z-30 bg-white/95 backdrop-blur-sm p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl border border-border animate-bounce-slow">
+                <p className="text-accent font-bold text-xl md:text-2xl leading-none mb-1">100%</p>
+                <p className="text-text-muted text-[10px] md:text-xs font-bold uppercase tracking-wider">
                   Organic Quality
                 </p>
               </div>
