@@ -21,7 +21,7 @@ export default function Home() {
 
 
         {/* Responsive Background Video */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-75 z-20 isolate">
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-40 z-20 isolate">
           <video
             src="/pearlvideo.mp4"
             autoPlay
