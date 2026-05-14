@@ -31,7 +31,7 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
           {/* Gradient to smooth out the edge of the video on mobile */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--bg)] md:hidden"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-transparent to-bg md:hidden"></div>
         </div>
 
         <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none z-[-1]" />
@@ -43,7 +43,7 @@ export default function Home() {
           </p>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold text-text tracking-tight leading-[1.1] mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             The Essence of <br className="hidden md:block" />
-            <span className="text-bg font-serif italic pr-2">Pure Grains</span>
+            <span className="text-accent-dark md:text-bg font-serif italic pr-2">Pure Grains</span>
           </h1>
           <p className="text-lg md:text-2xl text-text1 font-medium max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             Meticulously sourced, elegantly delivered. Nourishing the world with nature&apos;s finest harvests.
@@ -129,7 +129,7 @@ export default function Home() {
 
               {/* Product 1 - Basmati */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-0 items-center">
-                <div className="lg:col-span-7 relative h-[300px] sm:h-100 md:h-150 w-full overflow-hidden z-20 isolate">
+                <div className="lg:col-span-7 relative h-75 sm:h-100 md:h-150 w-full overflow-hidden z-20 isolate">
                   <Image
                     src="/images/basmati_rice.png"
                     alt="Basmati Rice"
@@ -165,7 +165,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="order-1 lg:order-2 lg:col-span-7 relative h-[300px] sm:h-100 md:h-150 w-full overflow-hidden z-20 isolate">
+                <div className="order-1 lg:order-2 lg:col-span-7 relative h-75 sm:h-100 md:h-150 w-full overflow-hidden z-20 isolate">
                   <Image
                     src="/images/wheat_grains.png"
                     alt="Premium Wheat"
@@ -177,7 +177,7 @@ export default function Home() {
 
               {/* Product 3 - Normal Rice */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-0 items-center">
-                <div className="lg:col-span-7 relative h-[300px] sm:h-100 md:h-150 w-full overflow-hidden z-20 isolate">
+                <div className="lg:col-span-7 relative h-75 sm:h-100 md:h-150 w-full overflow-hidden z-20 isolate">
                   <Image
                     src="/images/normal_rice.png"
                     alt="Normal Rice"
