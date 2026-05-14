@@ -191,7 +191,7 @@ export default function Navbar() {
               className={`block px-4 py-3 rounded-xl font-medium transition-colors ${
                 pathname === link.href
                   ? "bg-surface text-text1"
-                  : "text-text1 hover:bg-surface hover:text-accent-dark"
+                  : "text-text1 active:bg-surface hover:bg-surface hover:text-accent-dark"
               }`}
             >
               {link.name}
@@ -202,7 +202,7 @@ export default function Navbar() {
           <div>
             <button
               onClick={() => setIsMobileProductsOpen((prev) => !prev)}
-              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl font-medium transition-colors ${
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-xl active:bg-surface font-medium transition-colors ${
                 isProductsActive
                   ? "bg-surface text-accent-dark"
                   : "text-text hover:bg-surface hover:text-accent-dark"
@@ -224,7 +224,7 @@ export default function Navbar() {
               <div className="ml-4 mt-1 space-y-1 border-l-2 border-accent/30 pl-3">
                 <Link
                   href="/products"
-                  className="block px-3 py-2 rounded-lg text-sm font-semibold text-text hover:bg-surface hover:text-accent-dark transition-colors"
+                  className="block px-3 py-2 rounded-lg text-sm font-semibold text-text active:bg-surface hover:bg-surface hover:text-accent-dark transition-colors"
                 >
                   All Products
                 </Link>
@@ -232,7 +232,7 @@ export default function Navbar() {
                   <Link
                     key={sub.name}
                     href={sub.href}
-                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-text hover:bg-surface hover:text-accent-dark transition-colors"
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-text active:bg-surface hover:bg-surface hover:text-accent-dark transition-colors"
                   >
                     {sub.name}
                   </Link>
