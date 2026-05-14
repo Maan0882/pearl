@@ -179,7 +179,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 glass shadow-2xl border-t border-border transition-all duration-500 ease-in-out overflow-hidden ${
+        className={`md:hidden absolute top-full left-0 right-0 bg-accent shadow-2xl border-t border-border transition-all duration-500 ease-in-out overflow-hidden ${
           isMobileMenuOpen ? "max-h-[90vh] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
@@ -190,8 +190,8 @@ export default function Navbar() {
               href={link.href}
               className={`block px-4 py-3 rounded-xl font-medium transition-colors ${
                 pathname === link.href
-                  ? "bg-surface text-accent-dark"
-                  : "text-text hover:bg-surface hover:text-accent-dark"
+                  ? "bg-surface text-text1"
+                  : "text-text1 hover:bg-surface hover:text-accent-dark"
               }`}
             >
               {link.name}
@@ -232,7 +232,7 @@ export default function Navbar() {
                   <Link
                     key={sub.name}
                     href={sub.href}
-                    className="block px-3 py-2 rounded-lg text-sm text-text-muted hover:bg-surface hover:text-accent-dark transition-colors"
+                    className="block px-3 py-2 rounded-lg text-sm font-semibold text-text hover:bg-surface hover:text-accent-dark transition-colors"
                   >
                     {sub.name}
                   </Link>
