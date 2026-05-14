@@ -37,7 +37,7 @@ export default function Home() {
         <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none z-[-1]" />
         <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 md:w-150 md:h-150 rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none z-[-1]" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center flex-1 justify-center py-10 md:py-0 glass-purple md:hidden">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center flex-1 justify-center py-10 md:py-0">
           <p className="text-text uppercase tracking-[0.4em] text-[10px] sm:text-xs md:text-sm font-semibold mb-6 md:mb-8 animate-fade-in-up">
             Pearl Logistics
           </p>
