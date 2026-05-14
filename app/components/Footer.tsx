@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-glow opacity-[0.04] blur-[80px] pointer-events-none" />
 
       {/* 3D Farm Scene Background */}
-      <FarmScene />
+      {/* <FarmScene /> */}
 
       <div className="max-w-350 mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1fr_1.2fr] gap-6">

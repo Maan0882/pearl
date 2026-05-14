@@ -9,7 +9,7 @@ export default function Home() {
 
       {/* ═══════════════════════ CINEMATIC HERO ═══════════════════════ */}
       <section
-        className="relative z-20 min-h-dvh w-full flex items-center justify-center pt-20 overflow-hidden"
+        className="relative z-20 min-h-dvh w-full flex flex-col md:items-center md:justify-center pt-20 md:pt-24 overflow-hidden"
       >
         {/* Section Background Layer */}
         <div
@@ -21,7 +21,7 @@ export default function Home() {
 
 
         {/* Responsive Background Video */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-40 z-20 isolate">
+        <div className="relative md:absolute md:inset-0 w-full h-[45vh] md:h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-60 md:opacity-50 z-20 isolate shrink-0">
           <video
             src="/pearlvideo.mp4"
             autoPlay
@@ -30,12 +30,14 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
           />
+          {/* Gradient to smooth out the edge of the video on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--bg)] md:hidden"></div>
         </div>
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none z-[-1]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 md:w-150 md:h-150 rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none z-[-1]" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
+        <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none z-[-1]" />
+        <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 md:w-150 md:h-150 rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none z-[-1]" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center flex-1 justify-center py-10 md:py-0">
           <p className="text-text uppercase tracking-[0.4em] text-[10px] sm:text-xs md:text-sm font-semibold mb-6 md:mb-8 animate-fade-in-up">
             Pearl Logistics
           </p>
