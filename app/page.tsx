@@ -60,9 +60,9 @@ export default function Home() {
         </div>
 
         {/* Elegant Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
+        {/* <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
           <div className="w-px h-20 bg-linear-to-b from-accent to-transparent mx-auto"></div>
-        </div>
+        </div> */}
       </section>
 
       <div className="relative">
