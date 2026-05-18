@@ -9,60 +9,59 @@ export default function Home() {
 
       {/* ═══════════════════════ CINEMATIC HERO ═══════════════════════ */}
       <section
-        className="relative z-20 min-h-dvh w-full flex flex-col md:items-center md:justify-center pt-20 md:pt-24 overflow-hidden"
+        className="relative z-20 min-h-dvh w-full flex items-center pt-20 md:pt-24 overflow-hidden"
       >
         {/* Section Background Layer */}
         <div
           className="absolute inset-0 z-[-2]"
           style={{
-            background: "linear-gradient(160deg, var(--bg) 0%, var(--bg-alt) 30%, var(--surface) 60%, var(--bg-alt) 100%)",
+            background: "linear-gradient(160deg, var(--accent-light) 0%, var(--surface-hover) 40%, var(--surface) 70%, var(--accent-light) 100%)",
           }}
         />
 
+        <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 md:left-1/4 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none z-[-1]" />
+        <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 md:left-1/4 -translate-x-1/2 -translate-y-1/2 w-100 h-100 md:w-150 md:h-150 rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none z-[-1]" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
 
-        {/* Responsive Background Video */}
-        <div className="relative md:absolute md:inset-0 w-full h-[45vh] md:h-full overflow-hidden pointer-events-none flex items-center justify-center opacity-60 md:opacity-50 z-20 isolate shrink-0">
-          <video
-            src="/pearlvideo.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
-          {/* Gradient to smooth out the edge of the video on mobile */}
-          <div className="absolute inset-0 bg-linear-to-b from-transparent to-bg md:hidden"></div>
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-10 md:py-0">
+          <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+            {/* Text Content */}
+            <div className="flex-1 relative z-10 text-center md:text-left flex flex-col items-center md:items-start justify-center">
+              <p className="text-text uppercase tracking-[0.4em] text-[10px] sm:text-xs md:text-sm font-semibold mb-6 md:mb-8 animate-fade-in-up">
+                Pearl Logistics
+              </p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-text tracking-tight leading-[1.1] mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                The Essence <br className="hidden md:block" />
+                of <span className="text-accent-dark md:text-accent font-serif italic pr-2">Pure Grains</span>
+              </h1>
+              <p className="text-lg md:text-xl xl:text-2xl text-text1 font-medium max-w-xl md:max-w-none md:mx-0 mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+                Meticulously sourced, elegantly delivered. Nourishing the world with nature&apos;s finest harvests.
+              </p>
 
-        <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 rounded-full border border-accent/10 opacity-30 animate-spin-slow pointer-events-none z-[-1]" />
-        <div className="absolute top-[22.5vh] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 md:w-150 md:h-150 rounded-full border border-accent-light/10 opacity-20 animate-spin-slow pointer-events-none z-[-1]" style={{ animationDirection: "reverse", animationDuration: "40s" }} />
+              <div className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center justify-center px-10 py-4 bg-accent border border-accent text-bg-accent-dark hover:text hover:text-white transition-all duration-500 uppercase tracking-widest text-sm font-medium hover:border-accent"
+                >
+                  Explore Our Collection
+                </Link>
+              </div>
+            </div>
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center flex-1 justify-center py-10 md:py-0">
-          <p className="text-text uppercase tracking-[0.4em] text-[10px] sm:text-xs md:text-sm font-semibold mb-6 md:mb-8 animate-fade-in-up">
-            Pearl Logistics
-          </p>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold text-text tracking-tight leading-[1.1] mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            The Essence of <br className="hidden md:block" />
-            <span className="text-accent-dark md:text-bg font-serif italic pr-2">Pure Grains</span>
-          </h1>
-          <p className="text-lg md:text-2xl text-text1 font-medium max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            Meticulously sourced, elegantly delivered. Nourishing the world with nature&apos;s finest harvests.
-          </p>
-
-          <div className="animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
-            <Link
-              href="/products"
-              className="inline-flex items-center justify-center px-10 py-4 bg-accent border border-accent text-bg-accent-dark hover:text hover:text-white transition-all duration-500 uppercase tracking-widest text-sm font-medium hover:border-accent"
-            >
-              Explore Our Collection
-            </Link>
+            {/* Video Content */}
+            <div className="flex-1 w-full relative h-[45vh] md:h-[60vh] lg:h-[70vh] overflow-hidden rounded-[2rem] md:rounded-[3rem] shadow-2xl z-20 isolate shrink-0">
+              <video
+                src="/pearlvideo.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
+              {/* Gradient to smooth out the edge of the video on mobile */}
+              <div className="absolute inset-0 bg-linear-to-b from-transparent to-bg/50 md:hidden pointer-events-none"></div>
+            </div>
           </div>
         </div>
-
-        {/* Elegant Scroll Indicator */}
-        {/* <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-60">
-          <div className="w-px h-20 bg-linear-to-b from-accent to-transparent mx-auto"></div>
-        </div> */}
       </section>
 
       <div className="relative">
