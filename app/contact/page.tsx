@@ -58,7 +58,7 @@ export default function ContactPage() {
 
                 <div className="space-y-6 relative z-10">
                   {[
-                    { icon: Mail, label: "Email Us", value: "kamalgohel457@gmail.com" },
+                    { icon: Mail, label: "Email Us", value: "pearllogistics1997@gmail.com" },
                     { icon: Phone, label: "Call Us", value: "+91 7990353622" },
                     { icon: MapPin, label: "Visit Us", value: "D 103, SHREE RADHE SHYAM, SEVASI TP 2, BHAYLI VADODARA, 391410, VADODARA, GUJARAT" },
                   ].map((item, i) => (

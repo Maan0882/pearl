@@ -176,7 +176,7 @@ export default function Footer() {
                   <Mail className="h-4 w-4 text-accent-light" />
                 </div>
                 <span className="text-sm text-gray-200">
-                  kamalgohel457@gmail.com
+                  pearllogistics1997@gmail.com
                 </span>
               </li>
             </ul>
