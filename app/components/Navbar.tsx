@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Wheat, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from 'next/image';
 import { usePathname } from "next/navigation";
@@ -13,19 +13,19 @@ export default function Navbar() {
   const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
- 
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
- 
+
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsProductsOpen(false);
   }, [pathname]);
- 
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -36,20 +36,25 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
- 
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Contact Us", href: "/contact" },
   ];
- 
+
+  // Updated Product Links with the new items
   const productSubLinks = [
     { name: "Basmati Rice", href: "/products/basmati-rice" },
     { name: "Normal Rice", href: "/products/normal-rice" },
-    { name: "Wheat", href: "/products/wheat" },
+    { name: "Premium Wheat", href: "/products/wheat" },
+    { name: "Red Lentils", href: "/products/red-lentils" },
+    { name: "Chickpeas", href: "/products/chickpeas" },
+    { name: "Split Peas", href: "/products/split-peas" },
+    { name: "Beans", href: "/products/beans" },
   ];
- 
-  const isProductsActive = pathname === "/products";
+
+  const isProductsActive = pathname.startsWith("/products");
 
   return (
     <nav
@@ -96,7 +101,7 @@ export default function Navbar() {
                 />
               </Link>
             ))}
- 
+
             {/* Products Dropdown */}
             <div className="relative text-lg font-semibold" ref={dropdownRef}>
               <button
@@ -117,10 +122,10 @@ export default function Navbar() {
                   }`}
                 />
               </button>
- 
+
               {/* Dropdown Panel */}
               <div
-                className={`absolute top-full text-lg left-1/2 -translate-x-1/2 mt-2 w-48 bg-text rounded-2xl shadow-xl border border-border overflow-hidden transition-all duration-200 ${
+                className={`absolute top-full text-lg left-1/2 -translate-x-1/2 mt-2 w-56 bg-text rounded-2xl shadow-xl border border-border overflow-hidden transition-all duration-200 ${
                   isProductsOpen
                     ? "opacity-100 translate-y-0 pointer-events-auto"
                     : "opacity-0 -translate-y-2 pointer-events-none"
@@ -180,7 +185,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 right-0 bg-accent shadow-2xl border-t border-border transition-all duration-500 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? "max-h-[90vh] opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
+          isMobileMenuOpen ? "max-h-screen opacity-100 translate-y-0 pb-6" : "max-h-0 opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
         <div className="px-6 pt-4 pb-8 space-y-2 max-h-[80vh] overflow-y-auto">
@@ -197,7 +202,7 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
- 
+
           {/* Mobile Products Accordion */}
           <div>
             <button
@@ -215,10 +220,10 @@ export default function Navbar() {
                 }`}
               />
             </button>
- 
+
             <div
               className={`overflow-hidden transition-all duration-300 ${
-                isMobileProductsOpen ? "max-h-60" : "max-h-0"
+                isMobileProductsOpen ? "max-h-96" : "max-h-0"
               }`}
             >
               <div className="ml-4 mt-1 space-y-1 border-l-2 border-accent/30 pl-3">
@@ -240,13 +245,13 @@ export default function Navbar() {
               </div>
             </div>
           </div>
- 
+
           <div className="pt-3">
             <Link
               href="/contact"
-              className="block w-full text-center btn-primary rounded-xl!"
+              className="block w-full text-center bg-surface text-text font-bold py-3 rounded-xl hover:bg-text hover:text-bg transition-colors"
             >
-              <span className="relative z-10">Contact Us</span>
+              Contact Us
             </Link>
           </div>
         </div>

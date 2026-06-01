@@ -113,39 +113,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 </div>
               )}
 
-              {/* --- INFO CARDS OVERLAY --- */}
-              {/* Change: 'flex-row' instead of 'flex-col' to keep them small and side-by-side */}
-              <div className="absolute bottom-1 left-3 right-3 md:bottom-2 md:left-4 md:right-4 z-5 flex flex-row justify-between gap-2 md:gap-4">
-                {/* MOQ Card */}
-                <div className="bg-white/90 backdrop-blur-md rounded-xl md:rounded-2xl border border-border p-2 md:p-4 flex items-center gap-2 md:gap-3 shadow-xl flex-1 max-w-[180px] md:max-w-xs">
-                  <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                    <Package className="h-3.5 w-3.5 md:h-5 md:h-5" />
-                  </div>
-                  <div className="text-left overflow-hidden">
-                    <p className="text-[8px] md:text-[10px] uppercase tracking-wide text-text-muted font-bold truncate">
-                      Min. Order
-                    </p>
-                    <p className="text-[10px] md:text-base font-extrabold text-text leading-tight truncate">
-                      {product.moq}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Origin Card */}
-                <div className="bg-white/90 backdrop-blur-md rounded-xl md:rounded-2xl border border-border p-2 md:p-4 flex items-center gap-2 md:gap-3 shadow-xl flex-1 max-w-[180px] md:max-w-xs">
-                  <div className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                    <Globe className="h-3.5 w-3.5 md:h-5 md:h-5" />
-                  </div>
-                  <div className="text-left overflow-hidden">
-                    <p className="text-[8px] md:text-[10px] uppercase tracking-wide text-text-muted font-bold truncate">
-                      Origin
-                    </p>
-                    <p className="text-[10px] md:text-base font-extrabold text-text leading-tight truncate">
-                      {product.origin}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            
             </div>
           </div>
 

@@ -185,19 +185,23 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t-2 border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-300 text-sm">
-            &copy; {new Date().getFullYear()} Pearl Logistics | Developed with
-            🫶 by Techstrota | All Rights Reserved
-          </p>
-          <div className="flex items-center gap-6 text-sm text-gray-300">
-            <a href="#" className="hover:text-accent-light transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-accent-light transition-colors">
-              Terms of Service
-            </a>
-          </div>
-        </div>
+  <p className="text-gray-300 text-sm flex items-center flex-wrap justify-center gap-1">
+    &copy; {new Date().getFullYear()} Pearl Logistics | Developed with
+    <span>🫶</span> by
+    <a href="https://techstrota.com" target="_blank" rel="noopener noreferrer"  className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-semibold tracking-wide hover:opacity-80 transition">
+      Techstrota
+    </a>
+    | All Rights Reserved
+  </p>
+  <div className="flex items-center gap-6 text-sm text-gray-300">
+    <a href="#" className="hover:text-accent-light transition-colors">
+      Privacy Policy
+    </a>
+    <a href="#" className="hover:text-accent-light transition-colors">
+      Terms of Service
+    </a>
+  </div>
+</div>
       </div>
     </footer>
   );

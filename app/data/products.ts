@@ -55,7 +55,7 @@ export const products: Product[] = [
       {
         name: "1121 Sella Basmati Rice",
         image: "/Basmati Rice/1121 Sella Basmati Rice.png",
-          description: "World's longest grain rice with excellent cooking properties and aroma."
+        description: "World's longest grain rice with excellent cooking properties and aroma."
       },
       {
         name: "1509 Golden Sella Rice",
@@ -102,7 +102,7 @@ export const products: Product[] = [
       {
         name: "Sona Masoori Rice",
         image: "/Rice/Sona Masoori Rice.png",
-         description: "Medium-grain, aromatic rice widely used in South Indian cuisine."
+        description: "Medium-grain, aromatic rice widely used in South Indian cuisine."
       },
       {
         name: "PR-11 Non-Basmati Rice",
@@ -154,4 +154,130 @@ export const products: Product[] = [
       }
     ]
   },
+
+  // ==================== NEW PRODUCTS ==================== //
+
+  {
+    id: "red-lentils",
+    name: "Red Lentils",
+    image: "/images/red_lentils.png",
+    badge: "Nutritious",
+    description: "Premium quality red lentils, rich in protein and perfect for daily wholesome meals.",
+    fullDescription: "Our Red Lentils are sourced from the best farms, ensuring high protein content, a rich earthy flavor, and uniform size. They are easy to cook and serve as a staple in many traditional and global cuisines.",
+    features: [
+      "High protein and dietary fiber",
+      "Sortex cleaned (100% impurities free)",
+      "Quick cooking time",
+      "No artificial colors"
+    ],
+    specifications: [
+      { label: "Moisture", value: "12% Max" },
+      { label: "Foreign Matter", value: "0.5% Max" },
+      { label: "Purity", value: "99% Min" },
+    ],
+    moq: "20 Metric Tons",
+    origin: "India",
+    packaging: ["25kg", "50kg (PP Bags)"],
+    varieties: [
+      {
+        name: "Masoor",
+        image: "/images/masoor.png",
+        description: "Premium quality Masoor with a rich earthy flavor, perfect for soups and dals."
+      }
+    ]
+  },
+
+  {
+    id: "chickpeas",
+    name: "Chickpeas",
+    image: "/images/chickpeas.png",
+    badge: "Export Quality",
+    description: "Plump and golden chickpeas, known for their nutty flavor and firm texture.",
+    fullDescription: "We offer top-grade chickpeas that are meticulously sorted for uniform size and exceptional quality. Ideal for hummus, salads, and traditional curries, these chickpeas meet strict global export standards.",
+    features: [
+      "Uniform grain size",
+      "Premium nutty flavor",
+      "Rich in vitamins and minerals",
+      "Excellent for roasting or boiling"
+    ],
+    specifications: [
+      { label: "Moisture", value: "12% Max" },
+      { label: "Admixture", value: "0.5% Max" },
+      { label: "Size", value: "8mm, 9mm, 12mm (As per requirement)" },
+    ],
+    moq: "24 Metric Tons",
+    origin: "India",
+    packaging: ["25kg", "50kg (PP Bags)"],
+    varieties: [
+      {
+        name: "Chana",
+        image: "/images/chana.png",
+        description: "High-quality Chana, widely used in various traditional and modern recipes."
+      }
+    ]
+  },
+
+  {
+    id: "split-peas",
+    name: "Split Peas",
+    image: "/images/split_peas.png",
+    description: "Carefully processed split peas retaining their natural sweetness and nutritional profile.",
+    fullDescription: "Our split peas are processed with the utmost care to remove impurities while retaining their natural taste and nutrition. They are an excellent source of plant-based protein, highly digestible, and perfect for hearty meals.",
+    features: [
+      "Easy to digest",
+      "High in dietary fiber",
+      "100% Sortex cleaned and polished",
+      "Naturally sweet flavor profile"
+    ],
+    specifications: [
+      { label: "Moisture", value: "12% Max" },
+      { label: "Purity", value: "99.5% Min" },
+      { label: "Broken", value: "2% Max" },
+    ],
+    moq: "20 Metric Tons",
+    origin: "India",
+    packaging: ["25kg", "50kg (PP Bags)"],
+    varieties: [
+      {
+        name: "Chana Dal",
+        image: "/images/chana_dal.png",
+        description: "Nutritious and subtly sweet Chana Dal, an essential ingredient for Indian curries and sweets."
+      }
+    ]
+  },
+
+  {
+    id: "beans",
+    name: "Beans",
+    image: "/images/beans.png",
+    badge: "High Protein",
+    description: "A premium selection of healthy beans, offering excellent taste and consistency.",
+    fullDescription: "We supply top-grade beans that are carefully graded for size and color. Whether it's the deep red Rajma or the nutritious green Moong, our beans provide a wholesome, protein-rich addition to any diet.",
+    features: [
+      "Rich in antioxidants and iron",
+      "Excellent source of plant protein",
+      "Graded for uniform size and color",
+      "No artificial polishing"
+    ],
+    specifications: [
+      { label: "Moisture", value: "12% Max" },
+      { label: "Foreign Matter", value: "0.5% Max" },
+      { label: "Weeviled Beans", value: "Nil" },
+    ],
+    moq: "20 Metric Tons",
+    origin: "India",
+    packaging: ["25kg", "50kg (PP Bags)"],
+    varieties: [
+      {
+        name: "Rajma",
+        image: "/images/rajma.png",
+        description: "Deep red kidney beans (Rajma), perfect for rich and flavorful curries."
+      },
+      {
+        name: "Moong",
+        image: "/images/moong.png",
+        description: "Nutritious green gram (Moong), excellent for sprouting and light, healthy dals."
+      }
+    ]
+  }
 ];

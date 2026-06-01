@@ -3,6 +3,8 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import ScrollToTop from "@/app/components/ScrollToTop";
+import WhatsAppButton from "@/app/components/WhatsAppButton";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -29,6 +31,9 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <ScrollToTop />
+        <WhatsAppButton/>
+ /
       </body>
     </html>
   );
