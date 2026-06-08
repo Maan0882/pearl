@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollToTop from "@/app/components/ScrollToTop";
-import WhatsAppButton from "@/app/components/WhatsAppButton";
+import WhatsAppButton from "@/app/components/WhatsAppWidget";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,8 +32,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <ScrollToTop />
-        <WhatsAppButton/>
- /
+        <WhatsAppButton />
       </body>
     </html>
   );

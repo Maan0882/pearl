@@ -31,7 +31,7 @@ export default function AboutPage() {
         </div>
         <div className="absolute top-0 right-0 w-100 h-100 bg-accent opacity-[0.06] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
+          <div className="text-center max-w-3xl mx-auto">
             <div className="section-label mx-auto mb-4"><Award className="h-4 w-4" /><span>About Us</span></div>
             <h1 className="text-4xl md:text-6xl font-bold text-text mb-6 leading-tight">
               Built on Trust, <span className="text-gradient">Driven by Quality</span>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       {/* OUR PROCESS */}
       <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "var(--bg-alt)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-2xl mx-auto mb-20 animate-fade-in-up">
+          <div className="text-center max-w-2xl mx-auto mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-text mb-6">Our <span className="text-gradient">Process</span></h2>
             <p className="text-text-muted text-lg">From farm to global markets — quality engineered at every step of the journey.</p>
           </div>
@@ -115,9 +115,9 @@ export default function AboutPage() {
                 { step: "03", title: "Packaging", desc: "We offer custom packaging solutions including private labeling. Every batch is sealed in moisture-resistant materials to preserve freshness and aroma.", img: "/images/process_packaging.png", icon: Package },
                 { step: "04", title: "Delivery", desc: "Our temperature-controlled logistics network ensures safe and timely global shipping, delivering premium quality to over 50 countries worldwide.", img: "/images/process_delivery.png", icon: Globe },
               ].map((item, i) => (
-                <div key={i} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0 group">
+                <div key={i} className="relative flex flex-col md:flex-row items-center gap-6 md:gap-0">
                   {/* Timeline Node */}
-                  <div className="absolute left-4 md:left-1/2 w-12 h-12 rounded-full bg-linear-to-br from-accent to-accent-dark border-4 border-[var(--bg-alt)] shadow-lg -translate-x-1/2 flex items-center justify-center z-20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute left-4 md:left-1/2 w-12 h-12 rounded-full bg-linear-to-br from-accent to-accent-dark border-4 border-[var(--bg-alt)] shadow-lg -translate-x-1/2 flex items-center justify-center z-20">
                     <item.icon className="h-5 w-5 text-white" />
                   </div>
 
@@ -141,15 +141,15 @@ export default function AboutPage() {
                   
                   {/* Image Panel */}
                   <div className={`pl-16 md:pl-0 w-full md:w-1/2 ${i % 2 === 0 ? 'md:pl-16 md:order-last' : 'md:pr-16'}`}>
-                    <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl border border-border group-hover:shadow-2xl transition-all duration-500 z-20">
+                    <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl border border-border z-20">
                       <Image 
                         src={item.img} 
                         alt={item.title} 
                         fill 
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+                        className="object-cover" 
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent" />
                     </div>
                   </div>
                 </div>

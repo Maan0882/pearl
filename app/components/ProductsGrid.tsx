@@ -9,10 +9,12 @@ import { products } from "@/app/data/products";
 
 export default function ProductsGrid() {
   const [activeHash, setActiveHash] = useState("");
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    setMounted(true);
     const handleHash = () => {
       const hash = window.location.hash.replace("#", "");
       setActiveHash(hash);
@@ -105,8 +107,8 @@ export default function ProductsGrid() {
                       ))}
                     </ul>
 
-                    {product.varieties && product.varieties.length > 0 && (
-                      <div className="mt-6 pt-6 border-t border-white/10">
+                    {mounted && product.varieties && product.varieties.length > 0 && (
+                      <div className="mt-6 pt-6 border-t border-white/10 animate-fade-in">
                         <p className="text-xs font-bold uppercase tracking-widest text-text-muted mb-3">
                           Types Available
                         </p>
