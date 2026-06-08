@@ -154,130 +154,188 @@ export const products: Product[] = [
       }
     ]
   },
-
-  // ==================== NEW PRODUCTS ==================== //
-
   {
     id: "red-lentils",
-    name: "Red Lentils",
+    name: "Red Lentils (Masoor)",
     image: "/images/red_lentils.png",
-    badge: "Nutritious",
-    description: "Premium quality red lentils, rich in protein and perfect for daily wholesome meals.",
-    fullDescription: "Our Red Lentils are sourced from the best farms, ensuring high protein content, a rich earthy flavor, and uniform size. They are easy to cook and serve as a staple in many traditional and global cuisines.",
+    badge: "New",
+    description:
+      "Vibrant, protein-rich lentils with a quick-cook advantage. A global culinary staple.",
+    fullDescription: "Pearl Logistics offers premium quality Red Lentils (Masoor Dal), one of the most widely consumed pulses across South Asia, the Middle East, and Europe. Known for their bright orange-red hue and earthy flavour, our red lentils are carefully cleaned, sortex-processed, and graded to ensure uniformity. Rich in protein, iron, and dietary fibre, they are a nutritional powerhouse that cooks quickly without pre-soaking. Ideal for soups, stews, dals, and a variety of international dishes.",
     features: [
-      "High protein and dietary fiber",
-      "Sortex cleaned (100% impurities free)",
-      "Quick cooking time",
-      "No artificial colors"
+      "High protein content (25%+)",
+      "Quick-cook — no soaking required",
+      "100% Sortex cleaned & graded",
+      "Rich in iron and dietary fibre",
+      "Non-GMO and naturally processed"
     ],
     specifications: [
-      { label: "Moisture", value: "12% Max" },
+      { label: "Moisture", value: "13% Max" },
+      { label: "Protein", value: "25% Min" },
+      { label: "Broken/Split", value: "2% Max" },
       { label: "Foreign Matter", value: "0.5% Max" },
-      { label: "Purity", value: "99% Min" },
+      { label: "Admixture", value: "1% Max" },
+      { label: "Purity", value: "98% Min" },
     ],
     moq: "20 Metric Tons",
-    origin: "India",
-    packaging: ["25kg", "50kg (PP Bags)"],
+    origin: "India (Madhya Pradesh/Uttar Pradesh)",
+    packaging: ["25kg", "50kg (PP Bags)", "Custom Retail Packs"],
     varieties: [
       {
-        name: "Masoor",
-        image: "/images/masoor.png",
-        description: "Premium quality Masoor with a rich earthy flavor, perfect for soups and dals."
+        name: "Whole Masoor (Brown Lentil)",
+        image: "/Pulses/Whole Masoor.png",
+        description: "Unpolished whole lentils with a robust earthy flavour and high fibre content."
+      },
+      {
+        name: "Split Masoor Dal (Red)",
+        image: "/Pulses/Split Masoor Dal.png",
+        description: "Hulled and split red lentils that cook in minutes, perfect for soups and dals."
+      },
+      {
+        name: "Polished Masoor Dal",
+        image: "/Pulses/Polished Masoor Dal.png",
+        description: "Machine-polished split lentils with a bright colour and clean, mild taste."
       }
     ]
   },
 
   {
     id: "chickpeas",
-    name: "Chickpeas",
+    name: "Chickpeas (Chana)",
     image: "/images/chickpeas.png",
-    badge: "Export Quality",
-    description: "Plump and golden chickpeas, known for their nutty flavor and firm texture.",
-    fullDescription: "We offer top-grade chickpeas that are meticulously sorted for uniform size and exceptional quality. Ideal for hummus, salads, and traditional curries, these chickpeas meet strict global export standards.",
+    badge: "New",
+    description:
+      "Hearty, versatile legumes packed with protein. The cornerstone of cuisines worldwide.",
+    fullDescription: "Pearl Logistics exports premium quality Chickpeas (Cicer arietinum), also known as Chana or Garbanzo Beans, sourced from the fertile plains of Rajasthan and Madhya Pradesh. Our chickpeas are bold, round, and uniformly sized, machine-cleaned and graded to the highest export standards. Rich in plant-based protein, complex carbohydrates, and essential minerals, they are a vital ingredient in hummus, curries, salads, and snacks across the globe. We supply both Desi (brown) and Kabuli (white) varieties to cater to diverse market demands.",
     features: [
-      "Uniform grain size",
-      "Premium nutty flavor",
-      "Rich in vitamins and minerals",
-      "Excellent for roasting or boiling"
+      "High protein & fibre content",
+      "Bold, uniform grain size",
+      "Machine cleaned & sortex processed",
+      "Available in Desi & Kabuli varieties",
+      "Export-grade phytosanitary compliance"
     ],
     specifications: [
       { label: "Moisture", value: "12% Max" },
-      { label: "Admixture", value: "0.5% Max" },
-      { label: "Size", value: "8mm, 9mm, 12mm (As per requirement)" },
+      { label: "Protein", value: "20% Min" },
+      { label: "Foreign Matter", value: "0.5% Max" },
+      { label: "Admixture", value: "2% Max" },
+      { label: "Broken", value: "1% Max" },
+      { label: "Purity", value: "98% Min" },
     ],
-    moq: "24 Metric Tons",
-    origin: "India",
-    packaging: ["25kg", "50kg (PP Bags)"],
+    moq: "25 Metric Tons",
+    origin: "India (Rajasthan/Madhya Pradesh)",
+    packaging: ["25kg", "50kg (PP/Jute Bags)", "Custom Bulk"],
     varieties: [
       {
-        name: "Chana",
-        image: "/images/chana.png",
-        description: "High-quality Chana, widely used in various traditional and modern recipes."
+        name: "Kabuli Chana (White Chickpea)",
+        image: "/Pulses/Kabuli Chana.png",
+        description: "Large, cream-coloured chickpeas ideal for hummus, salads, and Middle Eastern dishes."
+      },
+      {
+        name: "Desi Chana (Brown Chickpea)",
+        image: "/Pulses/Desi Chana.png",
+        description: "Smaller, darker chickpeas with a stronger flavour, widely used in Indian curries."
+      },
+      {
+        name: "Green Chickpeas",
+        image: "/Pulses/Green Chickpeas.png",
+        description: "Fresh-dried green chickpeas with a sweeter taste, popular as a healthy snack."
       }
     ]
   },
 
   {
-    id: "split-peas",
-    name: "Split Peas",
-    image: "/images/split_peas.png",
-    description: "Carefully processed split peas retaining their natural sweetness and nutritional profile.",
-    fullDescription: "Our split peas are processed with the utmost care to remove impurities while retaining their natural taste and nutrition. They are an excellent source of plant-based protein, highly digestible, and perfect for hearty meals.",
+    id: "chana-dal",
+    name: "Split Peas (Chana Dal)",
+    image: "/images/chana_dal.png",
+    badge: "New",
+    description:
+      "Nutty, golden split peas with a rich texture. A beloved staple in South Asian cooking.",
+    fullDescription: "Pearl Logistics supplies premium Chana Dal (Split Chickpeas / Bengal Gram Dal), produced by dehusking and splitting Desi chickpeas to reveal their golden, nutty interior. It is one of the most popular lentils in South Asian cuisine, prized for its rich, slightly sweet flavour and firm texture that holds up well in cooking. Our Chana Dal is sortex cleaned, machine graded, and packed hygienically to retain freshness. With a low glycaemic index and high protein content, it is a favourite choice for health-conscious consumers and food manufacturers globally.",
     features: [
-      "Easy to digest",
-      "High in dietary fiber",
-      "100% Sortex cleaned and polished",
-      "Naturally sweet flavor profile"
+      "Low glycaemic index — diabetic-friendly",
+      "Rich, nutty flavour & firm texture",
+      "High protein & fibre",
+      "100% Sortex cleaned & machine graded",
+      "Consistent golden-yellow colour"
     ],
     specifications: [
       { label: "Moisture", value: "12% Max" },
-      { label: "Purity", value: "99.5% Min" },
-      { label: "Broken", value: "2% Max" },
+      { label: "Protein", value: "22% Min" },
+      { label: "Broken/Powder", value: "2% Max" },
+      { label: "Foreign Matter", value: "0.5% Max" },
+      { label: "Admixture", value: "1% Max" },
+      { label: "Purity", value: "98% Min" },
     ],
     moq: "20 Metric Tons",
-    origin: "India",
-    packaging: ["25kg", "50kg (PP Bags)"],
+    origin: "India (Rajasthan/Maharashtra)",
+    packaging: ["25kg", "50kg (PP Bags)", "1kg & 2kg Retail Packs"],
     varieties: [
       {
-        name: "Chana Dal",
-        image: "/images/chana_dal.png",
-        description: "Nutritious and subtly sweet Chana Dal, an essential ingredient for Indian curries and sweets."
+        name: "Bold Chana Dal",
+        image: "/Pulses/Bold Chana Dal.png",
+        description: "Large-sized split chickpeas with a pronounced nutty aroma, ideal for snacks and dals."
+      },
+      {
+        name: "Medium Chana Dal",
+        image: "/Pulses/Medium Chana Dal.png",
+        description: "Standard-grade split peas, perfect for everyday cooking and food processing."
+      },
+      {
+        name: "Besan (Chickpea Flour Grade)",
+        image: "/Pulses/Besan Grade Chana.png",
+        description: "Fine-milling grade Chana Dal, specifically selected for producing high-quality besan."
       }
     ]
   },
 
   {
     id: "beans",
-    name: "Beans",
+    name: "Beans (Rajma, Moong)",
     image: "/images/beans.png",
-    badge: "High Protein",
-    description: "A premium selection of healthy beans, offering excellent taste and consistency.",
-    fullDescription: "We supply top-grade beans that are carefully graded for size and color. Whether it's the deep red Rajma or the nutritious green Moong, our beans provide a wholesome, protein-rich addition to any diet.",
+    badge: "New",
+    description:
+      "Premium dried beans packed with nutrition. From robust Rajma to delicate Moong.",
+    fullDescription: "Pearl Logistics exports a diverse range of premium dried beans, including hearty Rajma (Kidney Beans) and versatile Moong Beans (Mung Beans). Rajma, with its deep red colour and creamy texture, is a cornerstone of North Indian cuisine and is gaining global popularity as a nutritious meat substitute. Moong beans, available whole or split, are celebrated for their digestibility and quick-cooking properties. All our beans are carefully cleaned, sorted, and graded to meet international food safety standards, making them suitable for retail, food service, and industrial use worldwide.",
     features: [
-      "Rich in antioxidants and iron",
-      "Excellent source of plant protein",
-      "Graded for uniform size and color",
-      "No artificial polishing"
+      "High plant-based protein source",
+      "Available whole & split varieties",
+      "Machine cleaned & Sortex processed",
+      "Free from pesticide residues",
+      "Consistent size and colour grading"
     ],
     specifications: [
-      { label: "Moisture", value: "12% Max" },
+      { label: "Moisture", value: "13% Max" },
+      { label: "Protein", value: "22-24% Min" },
       { label: "Foreign Matter", value: "0.5% Max" },
-      { label: "Weeviled Beans", value: "Nil" },
+      { label: "Admixture", value: "2% Max" },
+      { label: "Broken", value: "1% Max" },
+      { label: "Purity", value: "98% Min" },
     ],
     moq: "20 Metric Tons",
-    origin: "India",
-    packaging: ["25kg", "50kg (PP Bags)"],
+    origin: "India (Uttar Pradesh/Rajasthan/Andhra Pradesh)",
+    packaging: ["25kg", "50kg (PP/Jute Bags)", "Custom Retail Packs"],
     varieties: [
       {
-        name: "Rajma",
-        image: "/images/rajma.png",
-        description: "Deep red kidney beans (Rajma), perfect for rich and flavorful curries."
+        name: "Rajma (Dark Red Kidney Beans)",
+        image: "/Pulses/Rajma Dark Red.png",
+        description: "Bold, dark red kidney beans with a hearty flavour, ideal for rich curries and stews."
       },
       {
-        name: "Moong",
-        image: "/images/moong.png",
-        description: "Nutritious green gram (Moong), excellent for sprouting and light, healthy dals."
+        name: "Rajma (Light Red Kidney Beans)",
+        image: "/Pulses/Rajma Light Red.png",
+        description: "Lighter, speckled kidney beans with a milder taste, popular in international markets."
+      },
+      {
+        name: "Whole Moong (Green Gram)",
+        image: "/Pulses/Whole Moong.png",
+        description: "Small, green mung beans prized for sprouting, soups, and Asian cuisines."
+      },
+      {
+        name: "Moong Dal (Yellow Split Mung)",
+        image: "/Pulses/Moong Dal.png",
+        description: "Hulled and split mung beans with a delicate flavour and fast cook time."
       }
     ]
-  }
+  },
 ];

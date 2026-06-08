@@ -48,9 +48,10 @@ export default function ProductsGrid() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-12">
-          {products.map((product) => {
+          {products.map((product, index) => {
             const isHighlighted = activeHash === product.id;
             const productUrl = `/products/${product.id}`;
+            const isEven = index % 2 === 0;
 
             return (
               <div
@@ -63,9 +64,9 @@ export default function ProductsGrid() {
                 }`}
               >
                 <div className="flex flex-col lg:flex-row gap-8 items-stretch">
-                  
-                  {/* Left Product Card */}
-                  <div className="lg:w-1/2">
+
+                  {/* Product Card — alternates order on desktop */}
+                  <div className={`lg:w-1/2 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                     <ProductCard
                       name={product.name}
                       image={product.image}
@@ -74,9 +75,11 @@ export default function ProductsGrid() {
                     />
                   </div>
 
-                  {/* Right Feature Card */}
+                  {/* Feature / Info Card — alternates order on desktop */}
                   <div
                     className={`feature-card lg:w-1/2 p-8 rounded-3xl border transition-all duration-500 ${
+                      isEven ? "lg:order-2" : "lg:order-1"
+                    } ${
                       isHighlighted
                         ? "border-accent/60 bg-accent/5"
                         : "border-white/10"
@@ -101,6 +104,24 @@ export default function ProductsGrid() {
                         </li>
                       ))}
                     </ul>
+
+                    {product.varieties && product.varieties.length > 0 && (
+                      <div className="mt-6 pt-6 border-t border-white/10">
+                        <p className="text-xs font-bold uppercase tracking-widest text-text-muted mb-3">
+                          Types Available
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {product.varieties.map((variety) => (
+                            <span
+                              key={variety.name}
+                              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20 transition-colors"
+                            >
+                              {variety.name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <Link
                       href={productUrl}
