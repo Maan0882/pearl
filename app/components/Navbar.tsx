@@ -50,7 +50,7 @@ export default function Navbar() {
     { name: "Premium Wheat", href: "/products/wheat" },
     { name: "Red Lentils", href: "/products/red-lentils" },
     { name: "Chickpeas", href: "/products/chickpeas" },
-    { name: "Split Peas", href: "/products/split-peas" },
+    { name: "Split Peas (Chana Dal)", href: "/products/chana-dal" },
     { name: "Beans", href: "/products/beans" },
   ];
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import ProductsGrid from "@/app/components/ProductsGrid";
-import CTAGrains from "@/app/components/3d-scene/CTAGrains";
+import CTAGrains from "@/app/components/3d-scene/CTAGrainsClient";
 
 export const metadata: Metadata = {
   title: "Products — Pearl Logistics",

@@ -16,7 +16,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { products } from "@/app/data/products";
-import CTAGrains from "@/app/components/3d-scene/CTAGrains";
+import CTAGrains from "@/app/components/3d-scene/CTAGrainsClient";
 
 interface ProductPageProps {
   params: Promise<{ id: string }>;
