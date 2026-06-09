@@ -157,7 +157,7 @@ export const products: Product[] = [
   {
     id: "red-lentils",
     name: "Red Lentils (Masoor)",
-    image: "/images/red_lentils.png",
+    image: "/images/redlentils.png",
     badge: "New",
     description:
       "Vibrant, protein-rich lentils with a quick-cook advantage. A global culinary staple.",
